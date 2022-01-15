@@ -26,7 +26,7 @@ const Projects = forwardRef((props, ref) => {
     }
     window.addEventListener('scroll', handleScroll);
     return (
-        <div style={{ width: '100vw', overflow: 'hidden' }}>
+        <div style={{ width: '100vw', overflowX: 'hidden' }}>
             <div ref={ref} className='container projects'>
                 <h1 className='mainHeading'>MY PROJECTS</h1>
                 <div className="projectbgbox1"></div>
