@@ -1,0 +1,122 @@
+.projects {
+    padding: 2rem 0;
+    position: relative;
+}
+.projects .mainHeading {
+    color: #0B2935;
+}
+.project {
+    grid-gap: 5rem;
+    margin-top: 5rem;
+}
+.project img {
+    width: 100%;
+}
+.project:nth-child(even) .gridConImg {
+    order: 2;
+}
+.project .gridConDesc {
+    padding: 10%;
+    border: 5px solid #071a22;
+    border-radius: 20px;
+    background: transparent;
+}
+.project .gridConDesc > * {
+    position: relative;
+    z-index: 10;
+}
+.project .gridConDesc::after {
+    content: '';
+    height: 15rem;
+    width: 15rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(50%) translateY(50%);
+    border-radius: 20px;
+    border: 5px solid #7fadc99f;
+}
+.project:nth-child(even) .gridConDesc::after {
+    right: 100%;
+}
+.project .gridConDesc h2 {
+    font-size: 2.8rem;
+    color: #0B2935;
+    margin-bottom: 1rem;
+}
+.project .gridConDesc p, .project .gridConDesc ul {
+    font-size: 1.6rem;
+    color: #071a22;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.projbtnprim, .projbtnsec {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+    background-color: #0B2935;
+    border-radius: 10px;
+    padding: 1rem 1.6rem;
+    margin-right: 1.5rem;
+    display: block;
+}
+.projbtnsec { background-color: #26424e; }
+.projbtnprim:hover { transform: scale(1.1); }
+.projbtnsec:hover { transform: scale(1.1); }
+.projectButtons {
+    margin-top: 2rem;
+    display: flex;
+    position: relative;
+    z-index: 10;
+}
+
+.projectbgbox1, .projectbgbox2, .projectbgbox3 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 50px;
+    border: 10px solid #0b293515;
+}
+.projectbgbox1 {
+    top: -40vh;
+    left: 40%;
+}
+.projectbgbox2 {
+    height: 60vh;
+    bottom: 40vh;
+    left: 40%;
+}
+.projectbgbox3 {
+    height: 60vh;
+    top: 40vh;
+    right: 40%;
+    border: 10px solid #6ac7fd3d;
+}
+
+@media (max-width: 794px)
+{
+    .projects { overflow: hidden; }
+    .project { display: block; }
+    .project img {
+        width: 80%;
+    }
+    .project .gridConDesc {
+        padding: 0 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+    }
+    .project .gridConDesc::after { display: none; }
+    .projectButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .projbtnprim, .projbtnsec {
+        width: 100%;
+    }
+    .projbtnsec { margin: 2rem 0; }
+}

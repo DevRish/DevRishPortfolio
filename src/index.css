@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: Poppins;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  /* Padding and margins will be as required by different elements, add them at required positions */
+}
+.btn {
+  border-style: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.mainHeading {
+  width: 100%;
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+.gridCon {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.gridConImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 2s linear;
+}
+.gridConImgAnimate {
+  opacity: 1;
+  transform: scale(1);
+}
+.gridConDesc {
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: all 2s linear;
+}
+.gridConDescAnimate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 794px) {
+  html {
+    font-size: 56.25%;
+  }
+  .gridCon { display: block; }
+  .gridConDesc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Animations (donot forget to use animation-fill-mode: forwards to retain end properties) */
+@keyframes fadein {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slideinleft {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideinright {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+/* Scroll bar */
+@media (min-width: 750px)
+{
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(5, 22, 29); 
+    border-radius: 7px;
+  } 
+}
+@media (max-width: 750px)
+{
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    display: none;
+  }
+}

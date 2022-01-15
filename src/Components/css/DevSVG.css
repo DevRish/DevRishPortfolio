@@ -1,0 +1,55 @@
+#SmileCard {
+    animation: float 3s linear infinite;
+}
+#FavCard {
+    animation: float 3s linear infinite;
+    animation-delay: 0.5s;
+}
+#HTMLCard {
+    animation: float 3s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5%); }
+    100% { transform: translateY(0); }
+}
+#LaptopLight {
+    animation: glow 1.5s linear infinite;
+}
+@keyframes glow {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+#Spinner, #Gear {
+    animation: spin 3s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+@keyframes spin {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+#BoyLeftHand, #BoyRightHand {
+    animation: hand 1s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+#BoyRightHand {
+    animation-delay: 0.5s;
+}
+@keyframes hand {
+    0% { transform: rotateZ(0deg) translateX(0); }
+    50% { transform: rotateZ(5deg) translateX(-2px); }
+    100% { transform: rotateZ(0deg) translateX(0); }
+}
+
+#Envelope {
+    animation: floatdown 3s linear infinite;
+}
+@keyframes floatdown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(5%); }
+    100% { transform: translateY(0); }
+}

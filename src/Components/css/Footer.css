@@ -1,0 +1,47 @@
+.footerOuter {
+    width: 100vw;
+    background-color: #0B2935;
+    padding: 3rem 0;
+}
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: flex-start;
+    padding: 3rem 0;
+    color: rgb(204, 204, 204);
+    font-size: 1.6rem;
+}
+.footer p {
+    margin-top: 1rem;
+}
+.copyright {
+    width: 100vw;
+    background-color: black;
+}
+.copyright h1 {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1rem 0;
+    text-align: center;
+}
+.infoSummary a, .projectSummary a{
+    text-decoration: none;
+    color: rgb(204, 204, 204);;
+}
+
+@media (max-width: 794px)
+{
+    .footer {
+        display: block;
+    }
+    .footer > * {
+        margin-bottom: 5rem;
+    }
+    .footer > * > * {
+        width: 100%;
+        text-align: center;
+        /* border: 2px solid black; */
+    }
+}

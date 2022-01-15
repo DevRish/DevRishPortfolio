@@ -1,0 +1,227 @@
+.about .mainHeading {
+    color: #0B2935;
+}
+.about {
+    padding: 3rem 0;
+}
+.about .gridCon {
+    margin: 3rem 0;
+    grid-template-columns: 4fr 6fr;
+}
+
+/* Image Styling Starts*/
+.about .gridConImg img {
+    /* width: 60%; */
+    height: 60vh;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    border: 8px solid #0B2935;
+    position: relative;
+    z-index: 10;
+}
+.about .gridConImg::before {
+    position: absolute;
+    content: '';
+    border: 8px solid #4d7a963d;
+    border-radius: 20px;
+    height: 18rem;
+    width: 18rem;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+}
+.about .gridConImg::after {
+    position: absolute;
+    content: '';
+    border: 5px solid #7fadc99f;
+    border-radius: 20px;
+    height: 10rem;
+    width: 10rem;
+    bottom: 0;
+    right: 0;
+    transform: translateX(-50%) translateY(40%);
+}
+/* Image styling ends */
+
+/* Description Styling Starts */
+.about .gridConDesc {
+    border: 0.5rem solid #0b29355e;
+    border-radius: 20px;
+    padding: 5%;
+    position: relative;
+    height: 60vh;
+}
+.about .gridConDesc::after {
+    position: absolute;
+    content: '';
+    border: 5px solid #7fadc99f;
+    border-radius: 20px;
+    height: 10rem;
+    width: 10rem;
+    bottom: 0;
+    right: 0;
+    transform: translateX(50%) translateY(50%);
+}
+/* Carousel Styling Starts */
+.about .carousel {
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid black; */
+}
+.carousel .caroTrackContainer {
+    height: 90%;
+    width: 100%;
+    /* border: 2px solid red; */
+    overflow-x: hidden;
+    position: relative;
+}
+.carousel .caroTrack {
+    height: 100%;
+    width: 400%;
+    position: relative;
+    /* transform: translateX(-75%); */
+    transition: transform 1s linear;
+}
+.carousel .caroTrack > * {
+    /* height: 100%; */
+    /* height: fit-content; */
+    width: 25%;
+    position: absolute;
+    padding-bottom: 1rem;
+}
+.personalInfo {
+    top: 0;
+    left: 0;
+}
+.Skills {
+    top: 0;
+    left: 25%;
+}
+.Tools {
+    top: 0;
+    left: 50%;
+}
+.achievements {
+    top: 0;
+    left: 75%;
+}
+.carousel .caroButtonContainer {
+    height: 10%;
+    width: 100%;
+    /* border: 2px solid green; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.caroLeftBtn, .caroRightBtn {
+    border: none;
+    font-size: 2.4rem;
+    color: white;
+    background-color: #0B2935;
+    position: absolute;
+    height: 100%;
+    padding: 0 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+.caroLeftBtn { 
+    left: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+.caroRightBtn { 
+    right: 0; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+.caroIndexBtns button {
+    background-color: transparent;
+    border: none;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+.caroIndexBtnInactive {
+    font-size: 1.6rem;
+    color: #3b7288;
+}
+.caroIndexBtnActive {
+    font-size: 1.8rem;
+    color: #0B2935;
+}
+/* Carousel Basic Layout Styling Ends */
+
+/* Carousel Content Styling Starts */
+.personalInfo, .Skills { padding: 0 3rem; }
+.personalInfo h2, .Skills h2, .Tools h2, .achievements h2 {
+    font-size: 2.4rem;
+    color: #0B2935;
+    width: 100%;
+    text-align: center;
+}
+.personalInfo p, .achievements ul li {
+    font-size: 1.6rem;
+    color: #0B2935;
+    width: 100%;
+    margin: 2rem 0;
+}
+.achievements ul {
+    margin-left: 5%;
+    width: 100%;
+}
+.personalInfo .socialLinks {
+    display: flex;
+    align-items: center;
+}
+.personalInfo .socialLinks a {
+    font-size: 4rem;
+    color: #0B2935;
+    margin-right: 2.5rem;
+}
+.Skills .skillIcons, .Tools .toolIcons {
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 2rem;
+}
+.Skills .skillIcons a img, .Tools .toolIcons a img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* .about .gridConImg, .about .gridConDesc {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+} */
+
+@media (max-width: 794px)
+{
+    .about {
+        overflow: hidden;
+    }
+    .about .gridConImg {
+        margin-bottom: 5rem;
+    }
+    .about .gridConImg img {
+        height: 40vh;
+    }
+    .about .gridConDesc {
+        height: 60vh;
+    }
+    .Skills .skillIcons, .Tools .toolIcons {
+        width: 80%;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2.5rem;
+        /* margin: 2rem auto; */
+    }
+    /* .about .gridConImg, .about .gridConDesc {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    } */
+    /* .about .gridConImg::before, .about .gridConImg::after {
+        display: none;
+    } */
+}

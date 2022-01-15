@@ -1,0 +1,73 @@
+.contactOuter {
+    width: 100vw;
+    /* background-image: linear-gradient(60deg, rgb(11,41,53) 25%, rgb(28,66,89) 35%, rgb(11,41,53) 55%); */
+    background-color: rgb(18, 50, 63);
+    margin-top: 8rem;
+}
+.contact .mainHeading {
+    color: white;
+}
+.contact {
+    padding: 3rem 0;
+}
+.contact .gridCon {
+    margin: 4rem 0;
+    grid-gap: 5rem;
+}
+.contact svg {
+    width: 90%;
+    display: block;
+}
+.contact .gridConImg {
+    order: 2;
+}
+.contact .gridConDesc {
+    padding: 0 10%;
+}
+.contact .gridConDesc p {
+    font-size: 1.6rem;
+    color: white;
+    font-weight: 600;
+}
+/* .contact .gridConImg, .contact .gridConDesc {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+} */
+.contactForm { width: 100%; }
+.contactFormInput {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+.contactFormInput label {
+    font-size: 1.6rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+.contactFormInput input, textarea {
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 0.3rem solid #0C1E24;
+}
+.contactFormInput textarea {
+    height: 8rem;
+}
+.contactFormInput .btn {
+    padding: 1.5rem 0;
+    font-size: 1.8rem;
+    background-color: #05151B;
+    color: white;
+}
+.errorForm {
+    color: rgb(255, 94, 0);
+}
+
+@media (max-width: 794px) {
+    .contact svg {
+        width: 80%;
+        margin-bottom: 5rem;
+    }
+}
