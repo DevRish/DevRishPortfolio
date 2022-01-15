@@ -110,7 +110,7 @@ const About = forwardRef((props,ref) => {
                                     <div className="achievements">
                                         <h2>Some of my Achievements</h2>
                                         <ul>
-                                            <li>Achieved 3 star ratng on Codechef.</li>
+                                            <li>Achieved 3 star rating on Codechef.</li>
                                             <li>Participated in Hacktoberfest 2021 and successfully completed more than four contributions.</li>
                                             <li>Participated in Google 30 Days of Cloud and successfully completed both tracks.</li>
                                         </ul>
