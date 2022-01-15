@@ -26,65 +26,67 @@ const Projects = forwardRef((props, ref) => {
     }
     window.addEventListener('scroll', handleScroll);
     return (
-        <div ref={ref} className='container projects'>
-            <h1 className='mainHeading'>MY PROJECTS</h1>
-            <div className="projectbgbox1"></div>
-            <div className="projectbgbox2"></div>
-            <div className="projectbgbox3"></div>
-            <div className="gridCon project">
-                <div className={ (vis>=1) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
-                    <img src={MartCartImg} alt="MartcartProjectImage"/>
-                </div>
-                <div className={ (vis>=1) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
-                    <h2>MartCart</h2>
-                    <p>An ecommerce website where you can buy items</p>
-                    <ul>
-                        <li>99% responsive design</li>
-                        <li>Single Page Application using React RouterDOM</li>
-                        <li>Lightweight website with compressed images</li>
-                        <li>Data stored in real-time MongoDB database</li>
-                    </ul>
-                    <div className="projectButtons">
-                        <a href='https://martcartdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
-                        <a href='https://github.com/DevRish/martcart' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+        <div style={{ width: '100vw', overflow: 'hidden' }}>
+            <div ref={ref} className='container projects'>
+                <h1 className='mainHeading'>MY PROJECTS</h1>
+                <div className="projectbgbox1"></div>
+                <div className="projectbgbox2"></div>
+                <div className="projectbgbox3"></div>
+                <div className="gridCon project">
+                    <div className={ (vis>=1) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
+                        <img src={MartCartImg} alt="MartcartProjectImage"/>
+                    </div>
+                    <div className={ (vis>=1) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
+                        <h2>MartCart</h2>
+                        <p>An ecommerce website where you can buy items</p>
+                        <ul>
+                            <li>99% responsive design</li>
+                            <li>Single Page Application using React RouterDOM</li>
+                            <li>Lightweight website with compressed images</li>
+                            <li>Data stored in real-time MongoDB database</li>
+                        </ul>
+                        <div className="projectButtons">
+                            <a href='https://martcartdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
+                            <a href='https://github.com/DevRish/martcart' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="gridCon project">
-                <div className={ (vis>=2) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
-                    <img src={FramezyImg} alt="MartcartProjectImage"/>
-                </div>
-                <div className={ (vis>=2) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
-                    <h2>Framezy</h2>
-                    <p>An ecommerce website where you can buy items</p>
-                    <ul>
-                        <li>99% responsive design</li>
-                        <li>Lightweight website with compressed images</li>
-                        <li>Focussed on making UX following recent trends</li>
-                        <li>Enhanced mobile experience</li>
-                    </ul>
-                    <div className="projectButtons">
-                        <a href='https://devrish.github.io/Framezy/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
-                        <a href='https://github.com/DevRish/Framezy' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                <div className="gridCon project">
+                    <div className={ (vis>=2) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
+                        <img src={FramezyImg} alt="MartcartProjectImage"/>
+                    </div>
+                    <div className={ (vis>=2) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
+                        <h2>Framezy</h2>
+                        <p>An ecommerce website where you can buy items</p>
+                        <ul>
+                            <li>99% responsive design</li>
+                            <li>Lightweight website with compressed images</li>
+                            <li>Focussed on making UX following recent trends</li>
+                            <li>Enhanced mobile experience</li>
+                        </ul>
+                        <div className="projectButtons">
+                            <a href='https://devrish.github.io/Framezy/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
+                            <a href='https://github.com/DevRish/Framezy' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="gridCon project">
-                <div className={ (vis>=3) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
-                    <img src={NotesAppImg} alt="MartcartProjectImage"/>
-                </div>
-                <div className={ (vis>=3) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
-                    <h2>NotesApp</h2>
-                    <p>A CRUD app where a user can take notes</p>
-                    <ul>
-                        <li>99% responsive design</li>
-                        <li>Single Page Application using React RouterDOM</li>
-                        <li>Restricted routes protected using JWT</li>
-                        <li>Data stored in real-time MongoDB database</li>
-                    </ul>
-                    <div className="projectButtons">
-                        <a href='http://notesappdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
-                        <a href='https://github.com/DevRish/notes-app' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                <div className="gridCon project">
+                    <div className={ (vis>=3) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
+                        <img src={NotesAppImg} alt="MartcartProjectImage"/>
+                    </div>
+                    <div className={ (vis>=3) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
+                        <h2>NotesApp</h2>
+                        <p>A CRUD app where a user can take notes</p>
+                        <ul>
+                            <li>99% responsive design</li>
+                            <li>Single Page Application using React RouterDOM</li>
+                            <li>Restricted routes protected using JWT</li>
+                            <li>Data stored in real-time MongoDB database</li>
+                        </ul>
+                        <div className="projectButtons">
+                            <a href='http://notesappdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
+                            <a href='https://github.com/DevRish/notes-app' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                        </div>
                     </div>
                 </div>
             </div>
