@@ -9,9 +9,9 @@ header {
     z-index: 100;
 }
 @keyframes seeDown {
-    0% { clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 93%, 0 78%); }
-    50% { clip-path: polygon(0 0, 100% 0, 100% 83%, 50% 98%, 0 83%); }
-    100% { clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 93%, 0 78%); }
+    0% { clip-path: polygon(0 0, 100vw 0, 100vw 78%, 50vw 93%, 0 78%); }
+    50% { clip-path: polygon(0 0, 100vw 0, 100vw 83%, 50vw 98%, 0 83%); }
+    100% { clip-path: polygon(0 0, 100vw 0, 100vw 78%, 50vw 93%, 0 78%); }
 }
 
 header .container {
