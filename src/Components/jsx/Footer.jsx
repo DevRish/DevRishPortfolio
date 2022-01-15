@@ -15,7 +15,7 @@ const Footer = () => {
                                 target="_blank"
                             ><i className="fas fa-map-marker-alt"></i>  Kolkata, India</a></p>
                         <p><a href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><i className="fab fa-linkedin"></i> LinkedIn</a></p>
-                        <p><a href="https://github.com/DevRish"><i className="fab fa-github" target="_blank"></i> Github</a></p>
+                        <p><a href="https://github.com/DevRish" target="_blank"><i className="fab fa-github"></i> Github</a></p>
                     </div>
                     <div className="projectSummary">
                         <h4>Projects</h4>
