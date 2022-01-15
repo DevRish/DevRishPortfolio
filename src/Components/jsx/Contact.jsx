@@ -23,10 +23,10 @@ const Contact = forwardRef((props,ref) => {
         {
             Email.send({
                 Host : "smtp.gmail.com",
-                Username : "rishavdevacc2022@gmail.com",
-                Password : "wxsxigbgdmnoazrd",
-                To : 'rishavdevacc2022@gmail.com',
-                From : "rishavdevacc2022@gmail.com",
+                Username : process.env.REACT_APP_MY_EMAIL,
+                Password : process.env.REACT_APP_MY_PASSWORD,
+                To : process.env.REACT_APP_MY_EMAIL,
+                From : process.env.REACT_APP_MY_EMAIL,
                 Subject : `${name} sent you a message`,
                 Body : `Name: ${name} <br/><br/> Email: ${email} <br/><br/> Message:<br/><br/> ${message}`
             }).then(
