@@ -1,5 +1,6 @@
 .projects {
-    padding: 2rem 0;
+    padding-top: 2rem;
+    padding-bottom: 8rem;
     position: relative;
 }
 .projects .mainHeading {

@@ -19,7 +19,7 @@ const About = forwardRef((props,ref) => {
     }
     window.addEventListener('scroll', handleScroll);
     return (
-        <div style={{ width: '100vw', overflowX: 'hidden' }}>
+        <div style={{ width: '100vw', overflowX: 'hidden'}}>
             <div className='container about' ref={ref}>
                 <h1 className="mainHeading">ABOUT ME</h1>
                 <div className="gridCon">
