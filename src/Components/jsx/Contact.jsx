@@ -21,27 +21,36 @@ const Contact = forwardRef((props,ref) => {
         }
         else
         {
-            Email.send({
-                Host : "smtp.gmail.com",
-                Username : process.env.REACT_APP_MY_EMAIL,
-                Password : process.env.REACT_APP_MY_PASSWORD,
-                To : process.env.REACT_APP_MY_EMAIL,
-                From : process.env.REACT_APP_MY_EMAIL,
-                Subject : `${name} sent you a message`,
-                Body : `Name: ${name} <br/><br/> Email: ${email} <br/><br/> Message:<br/><br/> ${message}`
-            }).then(
-              message => {
-                setName('');
-                setEmail('');
-                setMessage('');
-                setSuccess('Thanks for your message! I will get back to you soon!');
-                alert('Thanks for your message! I will get back to you soon!');
-                setError('');
-                nameInput.current.value = '';
-                emailInput.current.value = '';
-                messageInput.current.value = '';
-              }
-            ).catch(err => console.log(err));
+            try {
+                Email.send({
+                    Host : "smtp.gmail.com",
+                    Username : process.env.REACT_APP_MY_EMAIL,
+                    Password : process.env.REACT_APP_MY_PASSWORD,
+                    To : process.env.REACT_APP_MY_EMAIL,
+                    From : process.env.REACT_APP_MY_EMAIL,
+                    Subject : `${name} sent you a message`,
+                    Body : `Name: ${name} <br/><br/> Email: ${email} <br/><br/> Message:<br/><br/> ${message}`
+                }).then(
+                  message => {
+                    setName('');
+                    setEmail('');
+                    setMessage('');
+                    setSuccess('Thanks for your message! I will get back to you soon!');
+                    alert('Thanks for your message! I will get back to you soon!');
+                    setError('');
+                    nameInput.current.value = '';
+                    emailInput.current.value = '';
+                    messageInput.current.value = '';
+                  }
+                ).catch(err => { 
+                    console.log(err);
+                    setError('Sorry. Something went wrong. Please check your connection and try again.');
+                });
+            } catch (error) {
+                console.log(error);
+                setError('Sorry. Something went wrong. Please check your connection and try again.');
+            }
+            
             
         }
     }
