@@ -1,18 +1,18 @@
-import React from 'react';
 import { useRef, useState, forwardRef } from 'react';
-import './../css/Contact.css';
+import './styles/Contact.css';
 import MessageMe from './MessageMe';
+import { FaPaperPlane } from 'react-icons/fa';
 
-const Contact = forwardRef((props,ref) => {
+const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
     // const comp = useRef(null);
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [message,setMessage] = useState('');
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('');
-    const nameInput = useRef(null);
-    const emailInput = useRef(null);
-    const messageInput = useRef(null);
+    const nameInput = useRef<HTMLInputElement>(null);
+    const emailInput = useRef<HTMLInputElement>(null);
+    const messageInput = useRef<HTMLTextAreaElement>(null);
     const sendMessage = async () => {
         if((name==='')||(email==='')||(message===''))
         {
@@ -21,46 +21,55 @@ const Contact = forwardRef((props,ref) => {
         }
         else
         {
-            try {
-                Email.send({
-                    Host : "smtp.gmail.com",
-                    Username : process.env.REACT_APP_MY_EMAIL,
-                    Password : process.env.REACT_APP_MY_PASSWORD,
-                    To : process.env.REACT_APP_MY_EMAIL,
-                    From : process.env.REACT_APP_MY_EMAIL,
-                    Subject : `${name} sent you a message`,
-                    Body : `Name: ${name} <br/><br/> Email: ${email} <br/><br/> Message:<br/><br/> ${message}`
-                }).then(
-                  message => {
-                    setName('');
-                    setEmail('');
-                    setMessage('');
-                    setSuccess('Thanks for your message! I will get back to you soon!');
-                    alert('Thanks for your message! I will get back to you soon!');
-                    setError('');
-                    nameInput.current.value = '';
-                    emailInput.current.value = '';
-                    messageInput.current.value = '';
-                  }
-                ).catch(err => { 
-                    console.log(err);
-                    setError('Sorry. Something went wrong. Please check your connection and try again.');
-                });
-            } catch (error) {
-                console.log(error);
-                setError('Sorry. Something went wrong. Please check your connection and try again.');
-            }
-            
-            
+            // TODO => Explore other emailing libraries, and safety with using with personal mail
+            // try {
+            //     Email.send({
+            //         Host : "smtp.gmail.com",
+            //         Username : process.env.REACT_APP_MY_EMAIL,
+            //         Password : process.env.REACT_APP_MY_PASSWORD,
+            //         To : process.env.REACT_APP_MY_EMAIL,
+            //         From : process.env.REACT_APP_MY_EMAIL,
+            //         Subject : `${name} sent you a message`,
+            //         Body : `Name: ${name} <br/><br/> Email: ${email} <br/><br/> Message:<br/><br/> ${message}`
+            //     }).then(
+            //       message => {
+            //         setName('');
+            //         setEmail('');
+            //         setMessage('');
+            //         setSuccess('Thanks for your message! I will get back to you soon!');
+            //         alert('Thanks for your message! I will get back to you soon!');
+            //         setError('');
+            //         nameInput.current.value = '';
+            //         emailInput.current.value = '';
+            //         messageInput.current.value = '';
+            //       }
+            //     ).catch(err => { 
+            //         console.log(err);
+            //         setError('Sorry. Something went wrong. Please check your connection and try again.');
+            //     });
+            // } catch (error) {
+            //     console.log(error);
+            //     setError('Sorry. Something went wrong. Please check your connection and try again.');
+            // }
+            setName('');
+            setEmail('');
+            setMessage('');
+            setSuccess('Thanks for your message! I will get back to you soon!');
+            alert('Thanks for your message! I will get back to you soon!');
+            setError('');
+            if (nameInput.current) nameInput.current.value = '';
+            if (emailInput.current) emailInput.current.value = '';
+            if (messageInput.current) messageInput.current.value = '';
         }
     }
     const [vis,setVis] = useState(0);
     const handleScroll = () => {
-        if(ref.current !== null)
+        const divRef = ref as React.MutableRefObject<HTMLDivElement | null>
+        if(divRef.current !== null)
         {
-            var pixelsScrolled = (window.pageYOffset - ref.current.offsetTop + window.innerHeight);
-            var compHeight = ref.current.clientHeight;
-            var percentScrolled = (pixelsScrolled/compHeight)*100;
+            const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
+            const compHeight = divRef.current.clientHeight;
+            const percentScrolled = (pixelsScrolled/compHeight)*100;
             if(percentScrolled<40 && vis!==0) setVis(0);
             if(percentScrolled>=40 && vis!==1) setVis(1);
         }
@@ -109,7 +118,7 @@ const Contact = forwardRef((props,ref) => {
                                 onChange={ (e) => { setMessage(e.target.value) }} ref={messageInput} ></textarea>
                             </div>
                             <div className="contactFormInput">
-                                <button className='btn' onClick={sendMessage}> <i className="fas fa-paper-plane"></i> Send Message</button>
+                                <button className='btn' onClick={sendMessage}> <FaPaperPlane /> Send Message</button>
                             </div>
                         </div>
                     </div>

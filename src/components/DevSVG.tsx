@@ -1,5 +1,4 @@
-import React from "react";
-import './../css/DevSVG.css';
+import './styles/DevSVG.css';
 
 const DevSVG = () => {
   return (

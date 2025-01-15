@@ -1,27 +1,25 @@
-import React from 'react';
-import {useRef, useState, forwardRef} from 'react';
-import './../css/Project.css';
-import MartCartImg from './../../Assets/MartcartMockups.png';
-import FramezyImg from './../../Assets/FramezyMockups.png';
-import NotesAppImg from './../../Assets/NotesAppMockups.png';
+import {useState, forwardRef} from 'react';
+import './styles/Project.css';
+import MartCartImg from '../assets/MartcartMockups.png';
+import FramezyImg from '../assets/FramezyMockups.png';
+import NotesAppImg from '../assets/NotesAppMockups.png';
+import { FaEye, FaGithub } from 'react-icons/fa';
 
-const Projects = forwardRef((props, ref) => {
+const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
     // const comp = useRef(null);
     const [vis,setVis] = useState(0);
-    //var flag = 0; // I will use it to check if animation has been played once
+    // let flag = 0; // will use it to check if animation has been played once
     const handleScroll = () => {
-        if(ref.current !== null)
-        {
-            var pixelsScrolled = (window.pageYOffset - ref.current.offsetTop + window.innerHeight);
-            var compHeight = ref.current.clientHeight;
-            // console.log(window.pageYOffset - comp.current.offsetTop + window.innerHeight);
-            var percentScrolled = (pixelsScrolled/compHeight)*100;
-            // console.log(percentScrolled);
-            if(percentScrolled<20 && vis!==0) setVis(0);
-            if(percentScrolled>=20 && percentScrolled<50 && vis!==1) setVis(1);
-            if(percentScrolled>=50 && percentScrolled<80 && vis!==2) setVis(2);
-            if(percentScrolled>80 && vis!==3) setVis(3);
-            // console.log(vis);
+        const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
+        if (divRef.current) {
+            const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
+            const compHeight = divRef.current.clientHeight;
+            const percentScrolled = (pixelsScrolled / compHeight) * 100;
+
+            if (percentScrolled < 20 && vis !== 0) setVis(0);
+            if (percentScrolled >= 20 && percentScrolled < 50 && vis !== 1) setVis(1);
+            if (percentScrolled >= 50 && percentScrolled < 80 && vis !== 2) setVis(2);
+            if (percentScrolled > 80 && vis !== 3) setVis(3);
         }
     }
     window.addEventListener('scroll', handleScroll);
@@ -46,8 +44,8 @@ const Projects = forwardRef((props, ref) => {
                             <li>Data stored in real-time MongoDB database</li>
                         </ul>
                         <div className="projectButtons">
-                            <a href='https://martcartdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
-                            <a href='https://github.com/DevRish/martcart' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                            <a href='https://martcartdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <FaEye /> Visit </a>
+                            <a href='https://github.com/DevRish/martcart' className="projbtnsec" target="_blank"> <FaGithub /> Github Repo </a>
                         </div>
                     </div>
                 </div>
@@ -65,8 +63,8 @@ const Projects = forwardRef((props, ref) => {
                             <li>Enhanced mobile experience</li>
                         </ul>
                         <div className="projectButtons">
-                            <a href='https://devrish.github.io/Framezy/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
-                            <a href='https://github.com/DevRish/Framezy' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                            <a href='https://devrish.github.io/Framezy/' className="projbtnprim" target="_blank"> <FaEye /> Visit </a>
+                            <a href='https://github.com/DevRish/Framezy' className="projbtnsec" target="_blank"> <FaGithub /> Github Repo </a>
                         </div>
                     </div>
                 </div>
@@ -84,8 +82,8 @@ const Projects = forwardRef((props, ref) => {
                             <li>Data stored in real-time MongoDB database</li>
                         </ul>
                         <div className="projectButtons">
-                            <a href='http://notesappdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <i className="fas fa-eye"></i> Visit </a>
-                            <a href='https://github.com/DevRish/notes-app' className="projbtnsec" target="_blank"> <i className="fab fa-github"></i> Github Repo </a>
+                            <a href='http://notesappdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <FaEye /> Visit </a>
+                            <a href='https://github.com/DevRish/notes-app' className="projbtnsec" target="_blank"> <FaGithub /> Github Repo </a>
                         </div>
                     </div>
                 </div>

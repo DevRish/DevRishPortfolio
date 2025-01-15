@@ -1,6 +1,5 @@
-import React from 'react';
 import { useState } from 'react';
-import './../css/ScrollToTop.css';
+import { FaArrowUp } from 'react-icons/fa';
 
 const ScrollToTop = () => {
     const scrollToTheTop = () => {
@@ -29,7 +28,7 @@ const ScrollToTop = () => {
             zIndex: '20',
             display: `${ (vis===1) ? 'block' : 'none' }`
         }}>
-            <i className="fas fa-arrow-up"></i>
+            <FaArrowUp />
         </button>
     )
 }

@@ -1,5 +1,4 @@
-import * as React from "react";
-import './../css/DevSVG.css';
+import './styles/DevSVG.css';
 
 const MessageMe = () => (
   <svg viewBox="0 0 704 574" fill="none" xmlns="http://www.w3.org/2000/svg">

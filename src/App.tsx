@@ -1,12 +1,10 @@
-import React from 'react';
-import { useState, useRef } from 'react';
-import './App.css';
-import Hero from './Components/jsx/Hero'
-import Projects from './Components/jsx/Projects';
-import Contact from './Components/jsx/Contact';
-import About from './Components/jsx/About';
-import Footer from './Components/jsx/Footer';
-import ScrollToTop from './Components/jsx/ScrollToTop';
+import { useRef } from 'react';
+import Hero from './components/Hero'
+import Projects from './components/Projects';
+import Contact from './components/Contact';
+import About from './components/About';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
     const projectRef = useRef(null);

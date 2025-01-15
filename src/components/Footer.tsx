@@ -1,5 +1,5 @@
-import React from 'react';
-import './../css/Footer.css';
+import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import './styles/Footer.css';
 
 const Footer = () => {
     return (
@@ -8,14 +8,14 @@ const Footer = () => {
                 <div className="container footer">
                     <div className="infoSummary">
                         <h4>Rishav Chattopadhya</h4>
-                        <p><a href="mailto:rishavchatterjee1546@gmail.com"><i className="fas fa-envelope"></i>  rishavchatterjee1546@gmail.com</a></p>
-                        <p><a href="tel:8902271148"><i className="fas fa-phone-alt"></i>  8902271148</a></p>
+                        <p><a href="mailto:rishavchatterjee1546@gmail.com"><FaEnvelope />  rishavchatterjee1546@gmail.com</a></p>
+                        <p><a href="tel:8902271148"><FaPhoneAlt />  8902271148</a></p>
                         <p><a 
                                 href="https://www.google.com/maps/place/Kolkata,+West+Bengal/@22.6757521,88.0495348,10z/data=!3m1!4b1!4m5!3m4!1s0x39f882db4908f667:0x43e330e68f6c2cbc!8m2!3d22.572646!4d88.363895"
                                 target="_blank"
-                            ><i className="fas fa-map-marker-alt"></i>  Kolkata, India</a></p>
-                        <p><a href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><i className="fab fa-linkedin"></i> LinkedIn</a></p>
-                        <p><a href="https://github.com/DevRish" target="_blank"><i className="fab fa-github"></i> Github</a></p>
+                            ><FaMapMarkerAlt />  Kolkata, India</a></p>
+                        <p><a href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><FaLinkedin /> LinkedIn</a></p>
+                        <p><a href="https://github.com/DevRish" target="_blank"><FaGithub /> Github</a></p>
                     </div>
                     <div className="projectSummary">
                         <h4>Projects</h4>

@@ -1,18 +1,19 @@
-import React from 'react';
-import { useState, useRef, forwardRef } from 'react';
-import './../css/About.css';
-import Me from './../../Assets/Me.jpeg';
+import { useState, forwardRef } from 'react';
+import './styles/About.css';
+import Me from '../assets/Me.jpeg';
+import { FaArrowLeft, FaArrowRight, FaCircle, FaEnvelope, FaFile, FaGithub, FaLinkedin } from 'react-icons/fa';
 
-const About = forwardRef((props,ref) => {
+const About = forwardRef<HTMLDivElement, any>((_, ref) => {
     const [caroIndex,setCaroIndex] = useState(0);
     // const comp = useRef(null);
     const [vis,setVis] = useState(0);
     const handleScroll = () => {
-        if(ref.current !== null)
+        const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
+        if(divRef.current !== null)
         {
-            var pixelsScrolled = (window.pageYOffset - ref.current.offsetTop + window.innerHeight);
-            var compHeight = ref.current.clientHeight;
-            var percentScrolled = (pixelsScrolled/compHeight)*100;
+            const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
+            const compHeight = divRef.current.clientHeight;
+            const percentScrolled = (pixelsScrolled/compHeight)*100;
             if(percentScrolled<40 && vis!==0) setVis(0);
             if(percentScrolled>=40 && vis!==1) setVis(1);
         }
@@ -40,9 +41,9 @@ const About = forwardRef((props,ref) => {
                                             Thanks for visiting my website!
                                         </p>
                                         <div className="socialLinks">
-                                            <a href="mailto:rishavchatterjee1546@gmail.com"><i className="fas fa-envelope"></i></a>
-                                            <a href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><i className="fab fa-linkedin"></i></a>
-                                            <a href="https://github.com/DevRish" target="_blank"><i className="fab fa-github"></i></a>
+                                            <a href="mailto:rishavchatterjee1546@gmail.com"><FaEnvelope /></a>
+                                            <a href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><FaLinkedin /></a>
+                                            <a href="https://github.com/DevRish" target="_blank"><FaGithub /></a>
                                             <a href="https://raw.githubusercontent.com/DevRish/DevRishResume/main/Resume.pdf" download
                                                 style={{ 
                                                     fontSize: '1.6rem', 
@@ -51,7 +52,7 @@ const About = forwardRef((props,ref) => {
                                                     color: 'white', 
                                                     padding: '1rem',
                                                     borderRadius: '10px'
-                                                }}><i className="far fa-file-alt"></i> My Resume
+                                                }}><FaFile /> My Resume
                                             </a>
                                         </div>
                                     </div>
@@ -121,25 +122,25 @@ const About = forwardRef((props,ref) => {
                                 <button className='caroLeftBtn' onClick={ () => {
                                     if(caroIndex===0) setCaroIndex(3);
                                     else setCaroIndex(caroIndex-1);
-                                } }><i className="fas fa-arrow-left"></i></button>
+                                } }><FaArrowLeft /></button>
                                 <button className='caroRightBtn' onClick={ () => {
                                     if(caroIndex===3) setCaroIndex(0);
                                     else setCaroIndex(caroIndex+1);
-                                } }><i className="fas fa-arrow-right"></i></button>
+                                } }><FaArrowRight /></button>
                                 <div className="caroIndexBtns">
                                     <button 
                                         className={ (caroIndex===0) ? 'caroIndexBtnActive' : 'caroIndexBtnInactive' }
                                         onClick={ () => { setCaroIndex(0) } 
-                                    }><i className="fas fa-circle"></i></button>
+                                    }><FaCircle /></button>
                                     <button className={ (caroIndex===1) ? 'caroIndexBtnActive' : 'caroIndexBtnInactive' }
                                         onClick={ () => { setCaroIndex(1) } 
-                                    }><i className="fas fa-circle"></i></button>
+                                    }><FaCircle /></button>
                                     <button className={ (caroIndex===2) ? 'caroIndexBtnActive' : 'caroIndexBtnInactive' }
                                         onClick={ () => { setCaroIndex(2) } 
-                                    }><i className="fas fa-circle"></i></button>
+                                    }><FaCircle /></button>
                                     <button className={ (caroIndex===3) ? 'caroIndexBtnActive' : 'caroIndexBtnInactive' }
                                         onClick={ () => { setCaroIndex(3) } 
-                                    }><i className="fas fa-circle"></i></button>
+                                    }><FaCircle /></button>
                                 </div>
                             </div>
                         </div>
