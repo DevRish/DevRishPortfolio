@@ -12,12 +12,12 @@ const App = () => {
     const contactRef = useRef(null);
     return (
         <>
-            <ScrollToTop />
+            <ScrollToTop /> { /* tailwind done */ }
             <Hero projectRef={projectRef} aboutRef={aboutRef} contactRef={contactRef} />
             <Projects ref={projectRef} />
             <Contact ref={contactRef} />
             <About ref={aboutRef} />
-            <Footer />
+            <Footer /> { /* tailwind done */ }
         </>
     )
 }

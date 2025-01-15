@@ -5,30 +5,18 @@ const ScrollToTop = () => {
     const scrollToTheTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    const [vis,setVis] = useState(0);
+    const [vis,setVis] = useState(false);
     const handleScroll = () => {
-        if((window.scrollY > window.innerHeight) && (vis===0)) setVis(1);
-        if((window.scrollY <= window.innerHeight) && (vis===1)) setVis(0);
+        if((window.scrollY > window.innerHeight) && (!vis)) setVis(true);
+        if((window.scrollY <= window.innerHeight) && (vis)) setVis(false);
     }
     window.addEventListener('scroll', handleScroll);
     return (
-        <button id='scrollToTopButton' onClick={ () => { scrollToTheTop() }} style={{
-            position: 'fixed',
-            bottom: '5vh',
-            right: '5vw',
-            color: 'white',
-            backgroundColor: 'rgb(5, 22, 29)',
-            borderStyle: 'none',
-            borderRadius: '50%',
-            fontSize: '3rem',
-            height: '7rem',
-            width: '7rem',
-            textAlign: 'center',
-            cursor: 'pointer',
-            zIndex: '20',
-            display: `${ (vis===1) ? 'block' : 'none' }`
-        }}>
-            <FaArrowUp />
+        <button 
+            onClick={ () => { scrollToTheTop() }} 
+            className={`fixed bottom-[5vh] right-[5vw] bg-[rgb(5,22,29)] border-0 rounded-full h-[7rem] w-[7rem] cursor-pointer z-20 ${vis ? 'block' : 'hidden'}`}
+        >
+            <FaArrowUp className='m-auto text-white text-[3rem]' />
         </button>
     )
 }
