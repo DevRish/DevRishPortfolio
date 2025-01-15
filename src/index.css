@@ -20,6 +20,18 @@ body {
   overflow-x: hidden;
 }
 
+.flex-and-center {
+  @apply flex justify-center items-center;
+}
+
+.transition-2ms {
+  @apply transition-all duration-[2000ms] ease-linear;
+}
+
+.w-container {
+  @apply w-full max-w-[1100px];
+}
+
 /* Utility Classes */
 .container {
   max-width: 1100px;
