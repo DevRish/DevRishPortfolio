@@ -1,7 +1,8 @@
+import { SVGAttributes } from 'react';
 import './styles/DevSVG.css';
 
-const MessageMe = () => (
-  <svg viewBox="0 0 704 574" fill="none" xmlns="http://www.w3.org/2000/svg">
+const MessageMe = ({ className, ...props }: SVGAttributes<SVGElement>) => (
+  <svg className={className} viewBox="0 0 704 574" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g id="MessageMe" clipPath="url(#clip0_28_2)">
       <g id="Man">
         <g id="Legs">

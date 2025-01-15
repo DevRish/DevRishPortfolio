@@ -1,5 +1,5 @@
 import { useRef, useState, forwardRef, useEffect, HTMLProps, ButtonHTMLAttributes, ChangeEvent } from 'react';
-import './styles/Contact.css';
+// import './styles/Contact.css';
 import MessageMe from './MessageMe';
 import { FaPaperPlane } from 'react-icons/fa';
 
@@ -17,13 +17,13 @@ type InputProps =
   | ({ variant: 'button' } & HTMLProps<HTMLButtonElement> & ButtonHTMLAttributes<HTMLButtonElement>)
 
 const Input = ({ variant, ...props }: InputProps) => {
-    const commonStyles = 'text-[1.6rem] w-full p-[0.5rem] rounded-[5px] border-[0.3rem] border-[#0C1E24]';
+    const commonStyles = 'text-[1.6rem] w-full px-[0.5rem] py-[0.25rem] rounded-[5px] border-[0.3rem] border-[#0C1E24] placeholder-gray-500 ';
     if (variant === 'input')
         return <input className={commonStyles} {...props as HTMLProps<HTMLInputElement>} />
     if (variant === 'textarea')
         return <textarea className={commonStyles + 'h-[8rem]'} {...props as HTMLProps<HTMLTextAreaElement>}></textarea>
     if (variant === 'button')
-        return <button className='text-[1.8rem] bg-[#05151B] text-white py-[1.5rem] px-0' {...props as ButtonHTMLAttributes<HTMLButtonElement>}></button>
+        return <button className='text-[1.8rem] bg-[#05151B] text-white py-[1.5rem] px-0 border-none rounded-[10px] cursor-pointer hover:scale-110 flex justify-center items-center' {...props as ButtonHTMLAttributes<HTMLButtonElement>}></button>
     return <></>;
 }
 
@@ -108,15 +108,17 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
     }, [vis]);
 
     return (
-        <div className='w-[100vw] bg-[rgb(18, 50, 63)]' ref={ref}>
-            <div className='w-container flex-and-center flex-col mx-auto py-3'>
-                <h1 className='w-full text-center text-[3.6rem] font-bold text-white'>LET'S TALK</h1>
-                <div className='w-full grid-cols-2 my-[4rem] space-x-[5rem]'>
+        <div className='w-[100vw] bg-[rgb(18,50,63)]' ref={ref}>
+            <div className='w-container flex-and-center flex-col mx-auto py-[3rem] text-white'>
+                <h1 className='w-full text-center text-[3.6rem] font-bold'>LET'S TALK</h1>
+                <div className='w-full grid grid-cols-2 my-[4rem] gap-[5rem]'>
                     <div className={`flex-and-center order-2 z-10 ${imgVis} transition-2ms`}>
-                        <MessageMe />
+                        <MessageMe className='block w-[90%]' />
                     </div>
-                    <div className={`z-10 ${descVis} transition-2ms`}>
-                        <p>Want to discuss about your new project? Just leave me a message and I will get back to you!</p>
+                    <div className={`z-10 ${descVis} transition-2ms px-[10%]`}>
+                        <p className='text-[1.6rem] font-semibold'>
+                            Want to discuss about your new project? Just leave me a message and I will get back to you!
+                        </p>
                         <div className="w-full">
                             {
                                 (error!=='') && 
@@ -146,7 +148,7 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
                                 onChange={ (e: ChangeEvent<HTMLTextAreaElement>) => { setMessage(e.target.value) }} ref={messageInput} ></Input>
                             </InputWrapper>
                             <InputWrapper>
-                                <Input variant='button' onClick={sendMessage}> <FaPaperPlane /> Send Message</Input>
+                                <Input variant='button' onClick={sendMessage}> <FaPaperPlane className='mr-[1rem]' /> Send Message</Input>
                             </InputWrapper>
                         </div>
                     </div>
