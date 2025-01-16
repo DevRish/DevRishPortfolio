@@ -74,10 +74,11 @@ const Footer = () => {
                                                 <a 
                                                     href={item.link} 
                                                     target={item.link.startsWith('http') ? '_blank' : '_self'}
+                                                    className='flex items-center gap-[1rem]'
                                                 >
                                                     {item.icon} {item.text}
                                                 </a> :
-                                                <>{item.icon} {item.text}</>
+                                                <p className='flex items-center gap-[1rem]'>{item.icon} {item.text}</p>
                                             }
                                         </p>
                                     ))
