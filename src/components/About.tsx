@@ -262,7 +262,7 @@ const About = forwardRef<HTMLDivElement, any>((_, ref) => {
                         <img className={'block relative m-auto h-[60vh] rounded-[10px] border-[#0B2935] border-[8px] z-10'} src={Me} alt="MyImage"/>
                     </div>
                     <div className={
-                        `col-span-3 z-10 ${descVis} transition-2ms ` +
+                        `col-span-3 z-10 ${descVis} transition-all duration-1000 ease-linear ` +
                         'border-[0.5rem] border-[#0b29355e] rounded-[20px] p-[5%] h-[60vh] relative ' +
                         // after: bottom right rectangle
                         "after:absolute after:bottom-0 after:right-0 after:content-[''] " +

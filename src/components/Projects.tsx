@@ -1,13 +1,122 @@
-import {useState, forwardRef} from 'react';
-import './styles/Project.css';
+import {useState, forwardRef, useEffect} from 'react';
+// import './styles/Project.css';
 import MartCartImg from '../assets/MartcartMockups.png';
 import FramezyImg from '../assets/FramezyMockups.png';
 import NotesAppImg from '../assets/NotesAppMockups.png';
 import { FaEye, FaGithub } from 'react-icons/fa';
 
+type ProjectData = {
+    name: string;
+    desc: string;
+    imgSrc: string;
+    imgAlt: string;
+    keyPoints: string[];
+    visitLink?: string;
+    repoLink: string;
+    shouldShow: boolean;
+}
+
+const ProjectSections = ({ projectData }: { projectData: ProjectData[] }) => (
+    <>
+    {
+        projectData.map(({ name, desc, imgSrc, imgAlt, keyPoints, visitLink, repoLink, shouldShow  }, i) => (
+            <div className="w-full grid grid-cols-2 gap-[5rem] mt-[5rem] project">
+                <div className={
+                    `flex-and-center z-20 transition-2ms ` + 
+                    (shouldShow ? 'opacity-100 scale-100' : 'opacity-0 scale-0') + ' ' +
+                    (i%2 === 0 ? '': 'order-2')
+                }>
+                    <img className='w-full' src={imgSrc} alt={imgAlt} />
+                </div>
+                <div className={ 
+                    `z-10 transition-2ms p-[10%] bg-transparent border-[5px] border-[#071a22] rounded-[20px] ` +
+                    (shouldShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[50%]') + ' ' +
+                    '*:relative *:z-10 ' +
+                    "after:content-[''] after:h-[15rem] after:w-[15rem] after:absolute after:bottom-0 " +
+                    (i%2 === 0 ? 'after:right-0' : 'after:right-[100%]') + ' ' +
+                    'after:translate-x-[50%] after:translate-y-[50%] ' +
+                    'after:border-[5px] after:border-[#7fadc99f] after:rounded-[20px]'
+                }>
+                    <h2 className='text-[2.8rem] text-[#0B2935] mb-[1rem] font-bold'>{name}</h2>
+                    <p className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold'>{desc}</p>
+                    <ul className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold list-disc'>
+                        {
+                            keyPoints.map((point) => (
+                                <li>{point}</li>
+                            ))
+                        }
+                    </ul>
+                    <div className='mt-[2rem] flex relative z-10 no-underline text-white text-[1.8rem]'>
+                        {
+                            visitLink &&
+                            <a href={visitLink} className='flex-and-center text-center bg-[#0B2935] rounded-[10px] py-[1rem] px-[1.6rem] mr-[1.5rem] block hover:scale-110' target="_blank"> 
+                                <FaEye className='mr-[1rem]' /> Visit 
+                            </a>
+                        }
+                        <a href={repoLink} className='flex-and-center text-center bg-[#26424e] rounded-[10px] py-[1rem] px-[1.6rem] mr-[1.5rem] block hover:scale-110' target="_blank"> 
+                            <FaGithub className='mr-[1rem]' /> Github Repo 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        ))
+    }
+    </>
+);
+
+const projectDataInit: ProjectData[] = [
+    {
+        name: 'MartCart',
+        desc: 'An ecommerce website where you can buy items',
+        imgSrc: MartCartImg,
+        imgAlt: 'MartcartProjectImage',
+        keyPoints: [
+            '99% responsive design',
+            'Single Page Application using React RouterDOM',
+            'Lightweight website with compressed images',
+            'Data stored in real-time MongoDB database'
+        ],
+        visitLink: 'https://martcartdevrish.netlify.app',
+        repoLink: 'https://github.com/DevRish/martcart',
+        shouldShow: false,
+    },
+    {
+        name: 'Framezy',
+        desc: 'A modern design landing page for an art framing service',
+        imgSrc: FramezyImg,
+        imgAlt: 'FramezyProjectImage',
+        keyPoints: [
+            '99% responsive design',
+            'Lightweight website with compressed images',
+            'Focussed on making UX following recent trends',
+            'Enhanced mobile experience',
+        ],
+        visitLink: 'https://devrish.github.io/Framezy/',
+        repoLink: 'https://github.com/DevRish/Framezy',
+        shouldShow: false,
+    },
+    {
+        name: 'NotesApp',
+        desc: 'A CRUD app where a user can take notes',
+        imgSrc: NotesAppImg,
+        imgAlt: 'NotesAppProjectImage',
+        keyPoints: [
+            '99% responsive design',
+            'Single Page Application using React RouterDOM',
+            'Restricted routes protected using JWT',
+            'Data stored in real-time MongoDB database',
+        ],
+        repoLink: 'https://github.com/DevRish/notes-app',
+        shouldShow: false,
+    },
+]
+
 const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
+
+    const [projectData,setProjectData] = useState<ProjectData[]>(projectDataInit);
+
     // const comp = useRef(null);
-    const [vis,setVis] = useState(0);
+    const [vis,setVis] = useState(-1);
     // let flag = 0; // will use it to check if animation has been played once
     const handleScroll = () => {
         const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
@@ -15,78 +124,34 @@ const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
             const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
             const compHeight = divRef.current.clientHeight;
             const percentScrolled = (pixelsScrolled / compHeight) * 100;
+            const percentEachProject = Math.floor(100 / projectData.length);
 
-            if (percentScrolled < 20 && vis !== 0) setVis(0);
-            if (percentScrolled >= 20 && percentScrolled < 50 && vis !== 1) setVis(1);
-            if (percentScrolled >= 50 && percentScrolled < 80 && vis !== 2) setVis(2);
-            if (percentScrolled > 80 && vis !== 3) setVis(3);
+            const expectedVis = (percentScrolled === 0) ? -1 : (percentScrolled / percentEachProject);
+            if (vis != expectedVis) setVis(expectedVis);
         }
     }
     window.addEventListener('scroll', handleScroll);
+
+    useEffect(() => {
+        setProjectData(prev => prev.map((d, i) => ({
+            ...d,
+            shouldShow: (i <= vis),
+        })));
+    }, [vis]);
+
     return (
-        <div style={{ width: '100vw', overflowX: 'hidden', overflowY: 'visible'}}>
-            <div ref={ref} className='container projects'>
-                <h1 className='mainHeading'>MY PROJECTS</h1>
-                <div className="projectbgbox1"></div>
-                <div className="projectbgbox2"></div>
-                <div className="projectbgbox3"></div>
-                <div className="gridCon project">
-                    <div className={ (vis>=1) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
-                        <img src={MartCartImg} alt="MartcartProjectImage"/>
-                    </div>
-                    <div className={ (vis>=1) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
-                        <h2>MartCart</h2>
-                        <p>An ecommerce website where you can buy items</p>
-                        <ul>
-                            <li>99% responsive design</li>
-                            <li>Single Page Application using React RouterDOM</li>
-                            <li>Lightweight website with compressed images</li>
-                            <li>Data stored in real-time MongoDB database</li>
-                        </ul>
-                        <div className="projectButtons">
-                            <a href='https://martcartdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <FaEye /> Visit </a>
-                            <a href='https://github.com/DevRish/martcart' className="projbtnsec" target="_blank"> <FaGithub /> Github Repo </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="gridCon project">
-                    <div className={ (vis>=2) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
-                        <img src={FramezyImg} alt="MartcartProjectImage"/>
-                    </div>
-                    <div className={ (vis>=2) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
-                        <h2>Framezy</h2>
-                        <p>An ecommerce website where you can buy items</p>
-                        <ul>
-                            <li>99% responsive design</li>
-                            <li>Lightweight website with compressed images</li>
-                            <li>Focussed on making UX following recent trends</li>
-                            <li>Enhanced mobile experience</li>
-                        </ul>
-                        <div className="projectButtons">
-                            <a href='https://devrish.github.io/Framezy/' className="projbtnprim" target="_blank"> <FaEye /> Visit </a>
-                            <a href='https://github.com/DevRish/Framezy' className="projbtnsec" target="_blank"> <FaGithub /> Github Repo </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="gridCon project">
-                    <div className={ (vis>=3) ? "gridConImg gridConImgAnimate" : "gridConImg" }>
-                        <img src={NotesAppImg} alt="MartcartProjectImage"/>
-                    </div>
-                    <div className={ (vis>=3) ? "gridConDesc gridConDescAnimate" : "gridConDesc" }>
-                        <h2>NotesApp</h2>
-                        <p>A CRUD app where a user can take notes</p>
-                        <ul>
-                            <li>99% responsive design</li>
-                            <li>Single Page Application using React RouterDOM</li>
-                            <li>Restricted routes protected using JWT</li>
-                            <li>Data stored in real-time MongoDB database</li>
-                        </ul>
-                        <div className="projectButtons">
-                            <a href='http://notesappdevrish.herokuapp.com/' className="projbtnprim" target="_blank"> <FaEye /> Visit </a>
-                            <a href='https://github.com/DevRish/notes-app' className="projbtnsec" target="_blank"> <FaGithub /> Github Repo </a>
-                        </div>
-                    </div>
-                </div>
+        <div className='w-[100vw] overflow-x-hidden overflow-y-visible'>
+            <div ref={ref} className='w-container flex-and-center flex-col mx-auto pt-[2rem] pb-[8rem] relative'>
+
+                <h1 className='w-full text-center text-[3.6rem] font-bold text-[#0B2935]'>MY PROJECTS</h1>
+
+                {/* Background Shapes */}
+                <div className="absolute h-[100vh] w-[100vw] rounded-[50px] border-[10px] border-[#0b293515] top-[-40vh] left-[40%]"></div>
+                <div className="absolute h-[60vh] w-[100vw] rounded-[50px] border-[10px] border-[#0b293515] bottom-[40vh] left-[40%]"></div>
+                <div className="absolute h-[60vh] w-[100vw] rounded-[50px] border-[10px] border-[#6ac7fd3d] top-[40vh] right-[40%]"></div>
+
+                {/* Projects */}
+                <ProjectSections projectData={projectData} />
             </div>
         </div>
     )
