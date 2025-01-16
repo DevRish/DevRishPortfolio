@@ -1,8 +1,9 @@
+import { SVGAttributes } from 'react';
 import './styles/DevSVG.css';
 
-const DevSVG = () => {
+const DevSVG = ({...props}: SVGAttributes<SVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 582 473">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 582 473" {...props}>
       <g id="Developer">
         <g id="BackgroundGlobe">
           <path

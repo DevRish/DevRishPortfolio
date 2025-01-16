@@ -14,9 +14,9 @@ const App = () => {
         <>
             <ScrollToTop /> { /* tailwind done */ }
             <Hero projectRef={projectRef} aboutRef={aboutRef} contactRef={contactRef} />
-            <Projects ref={projectRef} />
-            <Contact ref={contactRef} />
-            <About ref={aboutRef} />
+            <Projects ref={projectRef} /> { /* tailwind done */ }
+            <Contact ref={contactRef} /> { /* tailwind done */ }
+            <About ref={aboutRef} /> { /* tailwind done */ }
             <Footer /> { /* tailwind done */ }
         </>
     )
