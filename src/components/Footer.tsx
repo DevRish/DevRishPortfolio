@@ -66,12 +66,12 @@ const Footer = () => {
                     "text-[rgb(204,204,204)] text-[1.6rem] sm:text-[1.8rem]"
                 }>
                     {
-                        data.map(section => (
-                            <div className='sm:mb-[5rem] sm:*:w-full sm:*:text-center sm:mx-auto'>
+                        data.map((section, i) => (
+                            <div className='sm:mb-[5rem] sm:*:w-full sm:*:text-center sm:mx-auto' key={i}>
                                 <h4 className='font-bold'>{section.heading}</h4>
                                 {
-                                    section.items.map(item => (
-                                        <p className='no-underline text-[rgb(204,204,204)] mt-[1rem]'>
+                                    section.items.map((item, i) => (
+                                        <p className='no-underline text-[rgb(204,204,204)] mt-[1rem]' key={i}>
                                             {
                                                 item.link ?
                                                 <a 
@@ -81,7 +81,7 @@ const Footer = () => {
                                                 >
                                                     {item.icon} {item.text}
                                                 </a> :
-                                                <p className='flex items-center gap-[1rem] sm:flex sm:justify-center sm:items-center'>{item.icon} {item.text}</p>
+                                                <span className='flex items-center gap-[1rem] sm:flex sm:justify-center sm:items-center'>{item.icon} {item.text}</span>
                                             }
                                         </p>
                                     ))

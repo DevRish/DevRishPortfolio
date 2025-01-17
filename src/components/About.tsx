@@ -1,4 +1,4 @@
-import { useState, forwardRef, useEffect, HTMLProps } from 'react';
+import { useState, forwardRef, useEffect, HTMLProps, JSX } from 'react';
 import Me from '../assets/Me.jpeg';
 import { FaArrowLeft, FaArrowRight, FaCircle, FaEnvelope, FaFile, FaGithub, FaLinkedin } from 'react-icons/fa';
 
@@ -15,9 +15,9 @@ type IconData = {
 const IconSet = ({ iconData, ...props }: { iconData: IconData[] } & HTMLProps<HTMLDivElement>) => (
     <div className='w-[80%] my-[2rem] mx-auto grid grid-cols-4 gap-[2rem] sm:grid-cols-3 sm:gap-[2.5rem]' {...props}>
         {
-            iconData.map((icon) => (
-                <a href={icon.linkTo} target="_blank">
-                    <img className='max-w-full max-h-full' src={icon.imgLink} alt={icon.imgAlt} />
+            iconData.map((icon, i) => (
+                <a href={icon.linkTo} target="_blank" key={i}>
+                    <img className='max-w-full max-h-full'  src={icon.imgLink} alt={icon.imgAlt} />
                 </a>
             ))
         }
@@ -49,6 +49,7 @@ const Carousel = ({ slides, ...props }: { slides: CarouselSlide[] } & HTMLProps<
                             )
                         }
                         onClick={() => { setCaroIndex(i) }}
+                        key={i}
                     ><FaCircle /></button>
                 ))
             }
@@ -75,6 +76,7 @@ const Carousel = ({ slides, ...props }: { slides: CarouselSlide[] } & HTMLProps<
                                     width: `${100/slides.length}%`,
                                     left: `${(i/slides.length)*100}%`,
                                 }}
+                                key={i}
                             >
                                 <CarouselHeading>{slide.heading}</CarouselHeading>
                                 {slide.content}
@@ -212,8 +214,8 @@ const achievementData = [
 const Achievements = ({ data }: { data: string[] }) => (
     <ul className='w-full ml-[5%] list-disc'>
         {
-            data.map((d) => (
-                <li className='text-[2rem] sm:text-[1.8rem] text-[#0B2935] w-full my-[2rem] mx-0'>{d}</li>
+            data.map((d, i) => (
+                <li className='text-[2rem] sm:text-[1.8rem] text-[#0B2935] w-full my-[2rem] mx-0' key={i}>{d}</li>
             ))
         }
     </ul>
@@ -222,18 +224,22 @@ const Achievements = ({ data }: { data: string[] }) => (
 const About = forwardRef<HTMLDivElement, any>((_, ref) => {
 
     const [vis,setVis] = useState(0);
-    const handleScroll = () => {
-        const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
-        if(divRef.current !== null)
-        {
-            const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
-            const compHeight = divRef.current.clientHeight;
-            const percentScrolled = (pixelsScrolled/compHeight)*100;
-            if(percentScrolled<40 && vis!==0) setVis(0);
-            if(percentScrolled>=40 && vis!==1) setVis(1);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
+            if(divRef.current !== null)
+            {
+                const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
+                const compHeight = divRef.current.clientHeight;
+                const percentScrolled = (pixelsScrolled/compHeight)*100;
+                if(percentScrolled<40 && vis!==0) setVis(0);
+                if(percentScrolled>=40 && vis!==1) setVis(1);
+            }
         }
-    }
-    window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
 
     const [imgVis,setImgVis] = useState('opacity-0 scale-0');
     const [descVis,setDescVis] = useState('opacity-0 translate-y-[50%]');
@@ -258,7 +264,10 @@ const About = forwardRef<HTMLDivElement, any>((_, ref) => {
                         "after:border-[5px] after:border-[#7fadc99f] after:rounded-[20px] " +
                         "after:h-[10rem] after:w-[10rem] after:translate-y-[50%] after:translate-x-[-20%]"
                     }>
-                        <img className={'block relative m-auto sm:h-[40vh] h-[60vh] rounded-[10px] border-[#0B2935] border-[8px] z-10'} src={Me} alt="MyImage"/>
+                        <img 
+                            className={'block relative m-auto sm:h-[40vh] h-[60vh] rounded-[10px] border-[#0B2935] border-[8px] z-10'}
+                            src={Me.src} alt='MyImage'
+                        />
                     </div>
                     <div className={
                         `col-span-3 z-10 ${descVis} transition-all duration-1000 ease-linear sm:flex sm:flex-col sm:justify-center sm:items-center ` +
@@ -294,5 +303,7 @@ const About = forwardRef<HTMLDivElement, any>((_, ref) => {
         </div>
     )
 })
+
+About.displayName = 'About';
 
 export default About

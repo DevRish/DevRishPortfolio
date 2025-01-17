@@ -19,13 +19,13 @@ const ProjectSections = ({ projectData }: { projectData: ProjectData[] }) => (
     <>
     {
         projectData.map(({ name, desc, imgSrc, imgAlt, keyPoints, visitLink, repoLink, shouldShow  }, i) => (
-            <div className="w-full sm:block md:grid grid-cols-2 gap-[5rem] mt-[5rem] project">
+            <div className="w-full sm:block md:grid grid-cols-2 gap-[5rem] mt-[5rem] project" key={i}>
                 <div className={
                     `flex-and-center z-20 transition-2ms sm:mb-[4vh] ` + 
                     (shouldShow ? 'opacity-100 scale-100' : 'opacity-0 scale-0') + ' ' +
                     (i%2 === 0 ? '': 'order-2')
                 }>
-                    <img className='w-full sm:w-[80%]' src={imgSrc} alt={imgAlt} />
+                    <img src={imgSrc} alt={imgAlt} className='max-w-full max-h-full' />
                 </div>
                 <div className={ 
                     `z-10 transition-2ms p-[10%] bg-transparent border-[5px] border-[#071a22] rounded-[20px] ` +
@@ -42,8 +42,8 @@ const ProjectSections = ({ projectData }: { projectData: ProjectData[] }) => (
                     <p className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold sm:px-[7.5%]'>{desc}</p>
                     <ul className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold list-disc sm:px-[7.5%]'>
                         {
-                            keyPoints.map((point) => (
-                                <li>{point}</li>
+                            keyPoints.map((point, i) => (
+                                <li key={i}>{point}</li>
                             ))
                         }
                     </ul>
@@ -69,7 +69,7 @@ const projectDataInit: ProjectData[] = [
     {
         name: 'MartCart',
         desc: 'An ecommerce website where you can buy items',
-        imgSrc: MartCartImg,
+        imgSrc: MartCartImg.src,
         imgAlt: 'MartcartProjectImage',
         keyPoints: [
             '99% responsive design',
@@ -84,7 +84,7 @@ const projectDataInit: ProjectData[] = [
     {
         name: 'Framezy',
         desc: 'A modern design landing page for an art framing service',
-        imgSrc: FramezyImg,
+        imgSrc: FramezyImg.src,
         imgAlt: 'FramezyProjectImage',
         keyPoints: [
             '99% responsive design',
@@ -99,7 +99,7 @@ const projectDataInit: ProjectData[] = [
     {
         name: 'NotesApp',
         desc: 'A CRUD app where a user can take notes',
-        imgSrc: NotesAppImg,
+        imgSrc: NotesAppImg.src,
         imgAlt: 'NotesAppProjectImage',
         keyPoints: [
             '99% responsive design',
@@ -116,22 +116,24 @@ const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
 
     const [projectData,setProjectData] = useState<ProjectData[]>(projectDataInit);
 
-    // const comp = useRef(null);
     const [vis,setVis] = useState(-1);
-    // let flag = 0; // will use it to check if animation has been played once
-    const handleScroll = () => {
-        const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
-        if (divRef.current) {
-            const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
-            const compHeight = divRef.current.clientHeight;
-            const percentScrolled = (pixelsScrolled / compHeight) * 100;
-            const percentEachProject = Math.floor(100 / projectData.length);
 
-            const expectedVis = (percentScrolled === 0) ? -1 : (percentScrolled / percentEachProject);
-            if (vis != expectedVis) setVis(expectedVis);
+    useEffect(() => {
+        const handleScroll = () => {
+            const divRef = ref as React.MutableRefObject<HTMLDivElement | null>;
+            if (divRef.current) {
+                const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
+                const compHeight = divRef.current.clientHeight;
+                const percentScrolled = (pixelsScrolled / compHeight) * 100;
+                const percentEachProject = Math.floor(100 / projectData.length);
+    
+                const expectedVis = (percentScrolled === 0) ? -1 : (percentScrolled / percentEachProject);
+                if (vis != expectedVis) setVis(expectedVis);
+            }
         }
-    }
-    window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    })
 
     useEffect(() => {
         setProjectData(prev => prev.map((d, i) => ({
@@ -157,5 +159,7 @@ const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
         </div>
     )
 })
+
+Projects.displayName = 'Projects';
 
 export default Projects

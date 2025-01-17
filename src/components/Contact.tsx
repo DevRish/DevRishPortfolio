@@ -86,18 +86,22 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
         }
     }
     const [vis,setVis] = useState(0);
-    const handleScroll = () => {
-        const divRef = ref as React.MutableRefObject<HTMLDivElement | null>
-        if(divRef.current !== null)
-        {
-            const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
-            const compHeight = divRef.current.clientHeight;
-            const percentScrolled = (pixelsScrolled/compHeight)*100;
-            if(percentScrolled<40 && vis!==0) setVis(0);
-            if(percentScrolled>=40 && vis!==1) setVis(1);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const divRef = ref as React.MutableRefObject<HTMLDivElement | null>
+            if(divRef.current !== null)
+            {
+                const pixelsScrolled = (window.pageYOffset - divRef.current.offsetTop + window.innerHeight);
+                const compHeight = divRef.current.clientHeight;
+                const percentScrolled = (pixelsScrolled/compHeight)*100;
+                if(percentScrolled<40 && vis!==0) setVis(0);
+                if(percentScrolled>=40 && vis!==1) setVis(1);
+            }
         }
-    }
-    window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    })
 
     const [imgVis,setImgVis] = useState('opacity-0 scale-0');
     const [descVis,setDescVis] = useState('opacity-0 translate-y-[50%]');
@@ -109,7 +113,7 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
     return (
         <div className='w-[100vw] bg-[rgb(18,50,63)]' ref={ref}>
             <div className='w-container flex-and-center flex-col mx-auto py-[3rem] text-white'>
-                <h1 className='w-full text-center text-[3.6rem] font-bold'>LET'S TALK</h1>
+                <h1 className='w-full text-center text-[3.6rem] font-bold'>LET&apos;S TALK</h1>
                 <div className='w-full sm:block md:grid grid-cols-2 my-[4rem] gap-[5rem]'>
                     <div className={`flex-and-center order-2 z-10 ${imgVis} transition-2ms`}>
                         <MessageMe className='block w-[90%] sm:w-[80%] sm:mb-[5rem]' />
@@ -156,5 +160,7 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
         </div>
     )
 })
+
+Contact.displayName = 'Contact';
 
 export default Contact
