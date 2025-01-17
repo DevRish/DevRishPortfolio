@@ -1,6 +1,7 @@
 import { useRef, useState, forwardRef, useEffect, HTMLProps, ButtonHTMLAttributes, ChangeEvent } from 'react';
 import MessageMe from './MessageMe';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaSpinner } from 'react-icons/fa';
+import axios from 'axios';
 
 const InputWrapper = ({ children, ...props }: HTMLProps<HTMLDivElement>) => (
     <div className='flex flex-col mt-[1.5rem]' {...props}>{children}</div>
@@ -18,16 +19,16 @@ type InputProps =
 const Input = ({ variant, ...props }: InputProps) => {
     const commonStyles = 'text-[1.6rem] w-full px-[0.5rem] py-[0.25rem] rounded-[5px] border-[0.3rem] border-[#0C1E24] placeholder-gray-500 ';
     if (variant === 'input')
-        return <input className={commonStyles} {...props as HTMLProps<HTMLInputElement>} />
+        return <input className={commonStyles + 'text-[#05151B]'} {...props as HTMLProps<HTMLInputElement>} />
     if (variant === 'textarea')
-        return <textarea className={commonStyles + 'h-[8rem]'} {...props as HTMLProps<HTMLTextAreaElement>}></textarea>
+        return <textarea className={commonStyles + 'h-[8rem] text-[#05151B]'} {...props as HTMLProps<HTMLTextAreaElement>}></textarea>
     if (variant === 'button')
         return <button className='text-[1.8rem] bg-[#05151B] text-white py-[1.5rem] px-0 border-none rounded-[10px] cursor-pointer hover:scale-110 flex justify-center items-center' {...props as ButtonHTMLAttributes<HTMLButtonElement>}></button>
     return <></>;
 }
 
 const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
-    // const comp = useRef(null);
+    const [isLoading,setIsLoading] = useState(false);
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
     const [message,setMessage] = useState('');
@@ -44,45 +45,31 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
         }
         else
         {
-            // TODO => Explore other emailing libraries, and safety with using with personal mail
-            // try {
-            //     Email.send({
-            //         Host : "smtp.gmail.com",
-            //         Username : process.env.REACT_APP_MY_EMAIL,
-            //         Password : process.env.REACT_APP_MY_PASSWORD,
-            //         To : process.env.REACT_APP_MY_EMAIL,
-            //         From : process.env.REACT_APP_MY_EMAIL,
-            //         Subject : `${name} sent you a message`,
-            //         Body : `Name: ${name} <br/><br/> Email: ${email} <br/><br/> Message:<br/><br/> ${message}`
-            //     }).then(
-            //       message => {
-            //         setName('');
-            //         setEmail('');
-            //         setMessage('');
-            //         setSuccess('Thanks for your message! I will get back to you soon!');
-            //         alert('Thanks for your message! I will get back to you soon!');
-            //         setError('');
-            //         nameInput.current.value = '';
-            //         emailInput.current.value = '';
-            //         messageInput.current.value = '';
-            //       }
-            //     ).catch(err => { 
-            //         console.log(err);
-            //         setError('Sorry. Something went wrong. Please check your connection and try again.');
-            //     });
-            // } catch (error) {
-            //     console.log(error);
-            //     setError('Sorry. Something went wrong. Please check your connection and try again.');
-            // }
-            setName('');
-            setEmail('');
-            setMessage('');
-            setSuccess('Thanks for your message! I will get back to you soon!');
-            alert('Thanks for your message! I will get back to you soon!');
-            setError('');
-            if (nameInput.current) nameInput.current.value = '';
-            if (emailInput.current) emailInput.current.value = '';
-            if (messageInput.current) messageInput.current.value = '';
+            try {
+                setIsLoading(true);
+                await axios.post('/api/send-message', {
+                    name,
+                    email,
+                    message,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_SECRET}`,
+                    }
+                });
+                setIsLoading(false);
+                setName('');
+                setEmail('');
+                setMessage('');
+                setSuccess('Thanks for your message! I will get back to you soon!');
+                setError('');
+                if (nameInput.current) nameInput.current.value = '';
+                if (emailInput.current) emailInput.current.value = '';
+                if (messageInput.current) messageInput.current.value = '';
+            } catch (error) {
+                console.log(error);
+                setError('Sorry. Something went wrong. Please check your connection and try again.');
+            }
         }
     }
     const [vis,setVis] = useState(0);
@@ -126,13 +113,13 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
                             {
                                 (error!=='') && 
                                 <InputWrapper>
-                                    <p className='bg-orange-400'>{error}</p>
+                                    <p className='text-orange-400 text-[1.6rem] font-semibold'>{error}</p>
                                 </InputWrapper>
                             }
                             {
                                 (success!=='') && 
                                 <InputWrapper>
-                                    <p className='bg-[#99ffcc]'>{success}</p>
+                                    <p className='text-[#99ffcc] text-[1.6rem] font-semibold'>{success}</p>
                                 </InputWrapper>
                             }
                             <InputWrapper>
@@ -151,7 +138,10 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
                                 onChange={ (e: ChangeEvent<HTMLTextAreaElement>) => { setMessage(e.target.value) }} ref={messageInput} ></Input>
                             </InputWrapper>
                             <InputWrapper>
-                                <Input variant='button' onClick={sendMessage}> <FaPaperPlane className='mr-[1rem]' /> Send Message</Input>
+                                <Input variant='button' onClick={sendMessage} disabled={isLoading}> 
+                                    { isLoading ? <FaSpinner className='mr-[1rem] animate-spin' /> : <FaPaperPlane className='mr-[1rem]' /> } 
+                                    Send Message
+                                </Input>
                             </InputWrapper>
                         </div>
                     </div>
