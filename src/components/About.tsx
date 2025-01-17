@@ -118,7 +118,7 @@ const Introduction = () => (
             <SocialLink href="mailto:rishavchatterjee1546@gmail.com"><FaEnvelope /></SocialLink>
             <SocialLink href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><FaLinkedin /></SocialLink>
             <SocialLink href="https://github.com/DevRish" target="_blank"><FaGithub /></SocialLink>
-            <SocialLink href="https://raw.githubusercontent.com/DevRish/DevRishResume/main/Resume.pdf" download
+            <SocialLink href="https://drive.google.com/file/d/1k9WNmRv1O97aXYz8BN5NpUy5maRMokqH/view?usp=sharing" target="_blank"
                 className='text-[2rem] sm:text-[1.5rem] no-underline bg-[#0B2935] text-white p-[1rem] rounded-[10px] flex-and-center'
             >
                 <FaFile className='mr-[1rem]' /> My Resume

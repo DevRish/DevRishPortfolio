@@ -52,8 +52,8 @@ const Hero = ({ projectRef, aboutRef, contactRef  }: IHeroProps) => {
                             >
                                 <a 
                                     className='no-underline text-white text-[1.6rem] font-normal flex-and-center'
-                                    href="https://raw.githubusercontent.com/DevRish/DevRishResume/main/Resume.pdf"
-                                    download
+                                    href="https://drive.google.com/file/d/1k9WNmRv1O97aXYz8BN5NpUy5maRMokqH/view?usp=sharing"
+                                    target='_blank'
                                 ><FaFileAlt className='mr-[0.25rem]' /> Resume</a>
                             </button>
                         </NavItemMd>
@@ -68,7 +68,7 @@ const Hero = ({ projectRef, aboutRef, contactRef  }: IHeroProps) => {
                     <NavItemSm onClick={ () => { scrollToElement(aboutRef); setShowMenu(false); } }><FaInfo className='mr-[1rem]' /> About</NavItemSm>
                     <NavItemSm onClick={ () => { scrollToElement(contactRef); setShowMenu(false); } }><FaUser className='mr-[1rem]' /> Contact</NavItemSm>
                     <NavItemSm>
-                        <a href="https://raw.githubusercontent.com/DevRish/DevRishResume/main/Resume.pdf" download
+                        <a href="https://drive.google.com/file/d/1k9WNmRv1O97aXYz8BN5NpUy5maRMokqH/view?usp=sharing" target='_blank'
                             className='no-underline text-inherit flex-and-center'
                         ><FaFileAlt className='mr-[1rem]' /> Resume</a>
                     </NavItemSm>
