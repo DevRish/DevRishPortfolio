@@ -61,10 +61,13 @@ const Footer = () => {
     return (
         <>
             <div className='w-[100vw] bg-[#0B2935] py-[3rem]'>
-                <div className="w-full max-w-[1100px] mx-auto grid grid-cols-3 justify-items-center items-start py-[3rem] text-[rgb(204,204,204)] text-[1.6rem]">
+                <div className={
+                    "w-full max-w-[1100px] mx-auto sm:block md:grid grid-cols-3 justify-items-center items-start md:py-[3rem] sm:pt-[3rem] " + 
+                    "text-[rgb(204,204,204)] text-[1.6rem] sm:text-[1.8rem]"
+                }>
                     {
                         data.map(section => (
-                            <div>
+                            <div className='sm:mb-[5rem] sm:*:w-full sm:*:text-center sm:mx-auto'>
                                 <h4 className='font-bold'>{section.heading}</h4>
                                 {
                                     section.items.map(item => (
@@ -74,11 +77,11 @@ const Footer = () => {
                                                 <a 
                                                     href={item.link} 
                                                     target={item.link.startsWith('http') ? '_blank' : '_self'}
-                                                    className='flex items-center gap-[1rem]'
+                                                    className='flex items-center gap-[1rem] sm:flex sm:justify-center sm:items-center'
                                                 >
                                                     {item.icon} {item.text}
                                                 </a> :
-                                                <p className='flex items-center gap-[1rem]'>{item.icon} {item.text}</p>
+                                                <p className='flex items-center gap-[1rem] sm:flex sm:justify-center sm:items-center'>{item.icon} {item.text}</p>
                                             }
                                         </p>
                                     ))

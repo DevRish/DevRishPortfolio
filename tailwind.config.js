@@ -6,11 +6,16 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: { max: '794px' },
+        md: { min: '795px' },
+      },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(60deg, rgb(11,41,53) 25%, rgb(28,66,89) 35%, rgb(11,41,53) 55%)',
       },
       animation: {
         seeDown: 'seeDown 2s linear infinite',
+        seeDownSm: 'seeDownSm 2s linear infinite',
         box1: 'box1 0.5s linear forwards',
         box2: 'box2 0.5s linear forwards',
         box3: 'box3 0.5s linear forwards',
@@ -26,6 +31,11 @@ export default {
           '0%': { clipPath: 'polygon(0 0, 100vw 0, 100vw 78%, 50vw 93%, 0 78%)' },
           '50%': { clipPath: 'polygon(0 0, 100vw 0, 100vw 83%, 50vw 98%, 0 83%)' },
           '100%': { clipPath: 'polygon(0 0, 100vw 0, 100vw 78%, 50vw 93%, 0 78%)' },
+        },
+        seeDownSm: {
+          '0%': { clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 95%, 0 90%)' },
+          '50%': { clipPath: 'polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%)' },
+          '100%': { clipPath: 'polygon(0 0, 100% 0, 100% 90%, 50% 95%, 0 90%)' },
         },
         box1: {
           'from': { right: '100%' },

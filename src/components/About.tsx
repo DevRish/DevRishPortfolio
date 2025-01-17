@@ -14,7 +14,7 @@ type IconData = {
 }
 
 const IconSet = ({ iconData, ...props }: { iconData: IconData[] } & HTMLProps<HTMLDivElement>) => (
-    <div className='w-[80%] my-[2rem] mx-auto grid grid-cols-4 gap-[2rem]' {...props}>
+    <div className='w-[80%] my-[2rem] mx-auto grid grid-cols-4 gap-[2rem] sm:grid-cols-3 sm:gap-[2.5rem]' {...props}>
         {
             iconData.map((icon) => (
                 <a href={icon.linkTo} target="_blank">
@@ -85,7 +85,7 @@ const Carousel = ({ slides, ...props }: { slides: CarouselSlide[] } & HTMLProps<
                 </div>
             </div>
             {/* Control Buttons */}
-            <div className='flex-and-center relative w-full h-[10%]'>
+            <div className='flex-and-center relative w-full h-[10%] sm:mt-[1rem]'>
                 <button 
                     className={caroBtnStyle + ' left-0'}
                     onClick={() => {
@@ -108,7 +108,7 @@ const Carousel = ({ slides, ...props }: { slides: CarouselSlide[] } & HTMLProps<
 
 const Introduction = () => (
     <>
-        <p className='text-[2rem] text-[#0B2935] w-full my-[2rem] mx-0'>
+        <p className='text-[2rem] sm:text-[1.8rem] text-[#0B2935] w-full my-[2rem] mx-0'>
             I am a full stack web developer. I specialize in working with the MERN stack.
             I am currently pursuing B.Tech. in Computer Science and Engineering from 
             Heritage Institute Of Technology, Kolkata. I love to learn and try out new things.
@@ -120,7 +120,7 @@ const Introduction = () => (
             <SocialLink href="https://www.linkedin.com/in/rishav-chattopadhya-833850204/" target="_blank"><FaLinkedin /></SocialLink>
             <SocialLink href="https://github.com/DevRish" target="_blank"><FaGithub /></SocialLink>
             <SocialLink href="https://raw.githubusercontent.com/DevRish/DevRishResume/main/Resume.pdf" download
-                className='text-[2rem] no-underline bg-[#0B2935] text-white p-[1rem] rounded-[10px] flex-and-center'
+                className='text-[2rem] sm:text-[1.5rem] no-underline bg-[#0B2935] text-white p-[1rem] rounded-[10px] flex-and-center'
             >
                 <FaFile className='mr-[1rem]' /> My Resume
             </SocialLink>
@@ -214,7 +214,7 @@ const Achievements = ({ data }: { data: string[] }) => (
     <ul className='w-full ml-[5%] list-disc'>
         {
             data.map((d) => (
-                <li className='text-[2rem] text-[#0B2935] w-full my-[2rem] mx-0'>{d}</li>
+                <li className='text-[2rem] sm:text-[1.8rem] text-[#0B2935] w-full my-[2rem] mx-0'>{d}</li>
             ))
         }
     </ul>
@@ -245,11 +245,11 @@ const About = forwardRef<HTMLDivElement, any>((_, ref) => {
 
     return (
         <div className='w-[100vw] overflow-x-hidden' ref={ref}>
-            <div className='w-container flex-and-center flex-col mx-auto py-[3rem] about'>
+            <div className='w-container flex-and-center flex-col mx-auto py-[3rem] sm:overflow-hidden sm:px-[2rem]'>
                 <h1 className='w-full text-center text-[3.6rem] font-bold text-[#0B2935]'>ABOUT ME</h1>
-                <div className='w-full grid grid-cols-5 my-[3rem]'>
+                <div className='w-full sm:block md:grid grid-cols-5 my-[3rem]'>
                     <div className={
-                        `col-span-2 flex-and-center z-10 ${imgVis} transition-all duration-1000 ease-linear ` +
+                        `col-span-2 flex-and-center z-10 ${imgVis} transition-all duration-1000 ease-linear sm:mb-[7.5rem] ` +
                         // before: for styling top left rectangle
                         "before:absolute before:top-0 before:left-0 before:content-[''] " + 
                         "before:border-[8px] before:border-[#4d7a963d] before:rounded-[20px] " +
@@ -259,10 +259,10 @@ const About = forwardRef<HTMLDivElement, any>((_, ref) => {
                         "after:border-[5px] after:border-[#7fadc99f] after:rounded-[20px] " +
                         "after:h-[10rem] after:w-[10rem] after:translate-y-[50%] after:translate-x-[-20%]"
                     }>
-                        <img className={'block relative m-auto h-[60vh] rounded-[10px] border-[#0B2935] border-[8px] z-10'} src={Me} alt="MyImage"/>
+                        <img className={'block relative m-auto sm:h-[40vh] h-[60vh] rounded-[10px] border-[#0B2935] border-[8px] z-10'} src={Me} alt="MyImage"/>
                     </div>
                     <div className={
-                        `col-span-3 z-10 ${descVis} transition-all duration-1000 ease-linear ` +
+                        `col-span-3 z-10 ${descVis} transition-all duration-1000 ease-linear sm:flex sm:flex-col sm:justify-center sm:items-center ` +
                         'border-[0.5rem] border-[#0b29355e] rounded-[20px] p-[5%] h-[60vh] relative ' +
                         // after: bottom right rectangle
                         "after:absolute after:bottom-0 after:right-0 after:content-[''] " +

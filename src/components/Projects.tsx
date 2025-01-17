@@ -20,40 +20,42 @@ const ProjectSections = ({ projectData }: { projectData: ProjectData[] }) => (
     <>
     {
         projectData.map(({ name, desc, imgSrc, imgAlt, keyPoints, visitLink, repoLink, shouldShow  }, i) => (
-            <div className="w-full grid grid-cols-2 gap-[5rem] mt-[5rem] project">
+            <div className="w-full sm:block md:grid grid-cols-2 gap-[5rem] mt-[5rem] project">
                 <div className={
-                    `flex-and-center z-20 transition-2ms ` + 
+                    `flex-and-center z-20 transition-2ms sm:mb-[4vh] ` + 
                     (shouldShow ? 'opacity-100 scale-100' : 'opacity-0 scale-0') + ' ' +
                     (i%2 === 0 ? '': 'order-2')
                 }>
-                    <img className='w-full' src={imgSrc} alt={imgAlt} />
+                    <img className='w-full sm:w-[80%]' src={imgSrc} alt={imgAlt} />
                 </div>
                 <div className={ 
                     `z-10 transition-2ms p-[10%] bg-transparent border-[5px] border-[#071a22] rounded-[20px] ` +
+                    `sm:py-0 sm:px-[5%] sm:w-[80%] sm:m-auto sm:flex sm:flex-col sm:justify-center sm:items-center ` +
                     (shouldShow ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[50%]') + ' ' +
                     '*:relative *:z-10 ' +
                     "after:content-[''] after:h-[15rem] after:w-[15rem] after:absolute after:bottom-0 " +
                     (i%2 === 0 ? 'after:right-0' : 'after:right-[100%]') + ' ' +
                     'after:translate-x-[50%] after:translate-y-[50%] ' +
-                    'after:border-[5px] after:border-[#7fadc99f] after:rounded-[20px]'
+                    'after:border-[5px] after:border-[#7fadc99f] after:rounded-[20px] ' +
+                    'sm:after:hidden'
                 }>
-                    <h2 className='text-[2.8rem] text-[#0B2935] mb-[1rem] font-bold'>{name}</h2>
-                    <p className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold'>{desc}</p>
-                    <ul className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold list-disc'>
+                    <h2 className='text-[2.8rem] text-[#0B2935] mb-[1rem] font-bold sm:mt-[1rem]'>{name}</h2>
+                    <p className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold sm:px-[7.5%]'>{desc}</p>
+                    <ul className='text-[1.6rem] text-[#071a22] mb-[1rem] font-semibold list-disc sm:px-[7.5%]'>
                         {
                             keyPoints.map((point) => (
                                 <li>{point}</li>
                             ))
                         }
                     </ul>
-                    <div className='mt-[2rem] flex relative z-10 no-underline text-white text-[1.8rem]'>
+                    <div className='mt-[2rem] flex sm:flex-col sm:w-full relative z-10 no-underline text-white text-[1.8rem]'>
                         {
                             visitLink &&
-                            <a href={visitLink} className='flex-and-center text-center bg-[#0B2935] rounded-[10px] py-[1rem] px-[1.6rem] mr-[1.5rem] block hover:scale-110' target="_blank"> 
+                            <a href={visitLink} className='sm:w-full flex-and-center text-center bg-[#0B2935] rounded-[10px] py-[1rem] px-[1.6rem] mr-[1.5rem] block hover:scale-110' target="_blank"> 
                                 <FaEye className='mr-[1rem]' /> Visit 
                             </a>
                         }
-                        <a href={repoLink} className='flex-and-center text-center bg-[#26424e] rounded-[10px] py-[1rem] px-[1.6rem] mr-[1.5rem] block hover:scale-110' target="_blank"> 
+                        <a href={repoLink} className='sm:w-full sm:my-[2rem] sm:mx-0 flex-and-center text-center bg-[#26424e] rounded-[10px] py-[1rem] px-[1.6rem] mr-[1.5rem] block hover:scale-110' target="_blank"> 
                             <FaGithub className='mr-[1rem]' /> Github Repo 
                         </a>
                     </div>
@@ -141,7 +143,7 @@ const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
 
     return (
         <div className='w-[100vw] overflow-x-hidden overflow-y-visible'>
-            <div ref={ref} className='w-container flex-and-center flex-col mx-auto pt-[2rem] pb-[8rem] relative'>
+            <div ref={ref} className='w-container flex-and-center flex-col mx-auto pt-[2rem] pb-[8rem] sm:pb-[4vh] relative sm:overflow-hidden'>
 
                 <h1 className='w-full text-center text-[3.6rem] font-bold text-[#0B2935]'>MY PROJECTS</h1>
 

@@ -111,11 +111,11 @@ const Contact = forwardRef<HTMLDivElement, any>((_,ref) => {
         <div className='w-[100vw] bg-[rgb(18,50,63)]' ref={ref}>
             <div className='w-container flex-and-center flex-col mx-auto py-[3rem] text-white'>
                 <h1 className='w-full text-center text-[3.6rem] font-bold'>LET'S TALK</h1>
-                <div className='w-full grid grid-cols-2 my-[4rem] gap-[5rem]'>
+                <div className='w-full sm:block md:grid grid-cols-2 my-[4rem] gap-[5rem]'>
                     <div className={`flex-and-center order-2 z-10 ${imgVis} transition-2ms`}>
-                        <MessageMe className='block w-[90%]' />
+                        <MessageMe className='block w-[90%] sm:w-[80%] sm:mb-[5rem]' />
                     </div>
-                    <div className={`z-10 ${descVis} transition-2ms px-[10%]`}>
+                    <div className={`z-10 ${descVis} transition-2ms px-[10%] sm:flex sm:flex-col sm:justify-center sm:items-center`}>
                         <p className='text-[1.6rem] font-semibold'>
                             Want to discuss about your new project? Just leave me a message and I will get back to you!
                         </p>
