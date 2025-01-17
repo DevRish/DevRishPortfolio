@@ -4,6 +4,9 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
   title: "Rishav Chattopadhyay | Portfolio",
   description: "Rishav Chattopadhyay | Portfolio",
+  icons: {
+    icon: '/laptop-code-solid.svg',
+  }
 };
 
 export default function RootLayout({
