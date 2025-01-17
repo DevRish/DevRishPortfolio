@@ -15,6 +15,11 @@ export default {
         box2: 'box2 0.5s linear forwards',
         box3: 'box3 0.5s linear forwards',
         fadein: 'fadein 0.5s linear forwards',
+        float: 'float 3s linear infinite',
+        glow: 'glow 1.5s linear infinite',
+        spin: 'spin 3s linear infinite',
+        floatdown: 'floatdown 3s linear infinite',
+        hand: 'hand 1s linear infinite',
       },
       keyframes: {
         seeDown: {
@@ -37,6 +42,30 @@ export default {
         fadein: {
           'from': { scale: '0', opacity: '0' },
           'to': { scale: '1', opacity: '1' }
+        },
+        float: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        glow: {
+          '0%': { opacity: '0.5' },
+          '50%': { opacity: '1' },
+          '100%': { opacity: '0.5' },
+        },
+        spin: {
+          '0%': { transform: 'rotateZ(0deg)' },
+          '100%': { transform: 'rotateZ(360deg)' },
+        },
+        floatdown: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(5%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        hand: {
+          '0%': { transform: 'rotateZ(0deg) translateX(0)' },
+          '50%': { transform: 'rotateZ(5deg) translateX(-2px)' },
+          '100%': { transform: 'rotateZ(0deg) translateX(0)' },
         }
       },
     },

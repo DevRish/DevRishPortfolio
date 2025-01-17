@@ -32,6 +32,10 @@ body {
   @apply w-full max-w-[1100px];
 }
 
+.fill-box {
+  transform-box: fill-box;
+}
+
 /* Utility Classes */
 .container {
   max-width: 1100px;

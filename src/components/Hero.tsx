@@ -22,7 +22,11 @@ const Hero = ({ projectRef, aboutRef, contactRef  }: IHeroProps) => {
     return (
         <header className='w-[100vw] min-h-[100vh] bg-hero-gradient relative overflow-hidden z-50 animate-seeDown' >
             <div className={bgBoxClass + 'h-[200vh] w-[200vh] top-[67.5%] border-[15px] border-[#24506B] animate-box1'}></div>
-            <div className={bgBoxClass + 'top-[50%] left-[50%] translate-x-[50%] translate-y-[50%] h-[70vh] w-[70vh] border-[15px] border-[#1F465E] z-[2] animate-box2'}></div>
+            <div className={
+                bgBoxClass + 
+                'top-[50%] left-[50%] translate-x-[50%] translate-y-[50%] h-[70vh] w-[70vh] ' + 
+                'border-[15px] border-[#1F465E] z-[2] animate-box2'
+            }></div>
             <div className={bgBoxClass + 'h-[200vh] w-[200vh] bottom-[50%] border-[15px] border-[#0E3750] animate-box3'}></div>
             <div className='w-container flex-and-center flex-col mx-auto z-[5]'>
                 <nav className='w-full flex justify-between items-center py-0 px-[5rem] z-[5]'>
