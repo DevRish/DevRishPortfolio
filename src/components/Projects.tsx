@@ -1,5 +1,4 @@
 import {useState, forwardRef, useEffect} from 'react';
-// import './styles/Project.css';
 import MartCartImg from '../assets/MartcartMockups.png';
 import FramezyImg from '../assets/FramezyMockups.png';
 import NotesAppImg from '../assets/NotesAppMockups.png';
@@ -148,8 +147,8 @@ const Projects = forwardRef<HTMLDivElement, any>((_, ref) => {
                 <h1 className='w-full text-center text-[3.6rem] font-bold text-[#0B2935]'>MY PROJECTS</h1>
 
                 {/* Background Shapes */}
-                <div className="absolute h-[100vh] w-[100vw] rounded-[50px] border-[10px] border-[#0b293515] top-[-40vh] left-[40%]"></div>
-                <div className="absolute h-[60vh] w-[100vw] rounded-[50px] border-[10px] border-[#0b293515] bottom-[40vh] left-[40%]"></div>
+                <div className="absolute h-[100vh] w-[100vw] rounded-[50px] border-[10px] border-[#0b293515] top-[-45vh] left-[40%]"></div>
+                <div className="absolute h-[60vh] w-[100vw] rounded-[50px] border-[10px] border-[#0b293515] bottom-[30vh] left-[40%]"></div>
                 <div className="absolute h-[60vh] w-[100vw] rounded-[50px] border-[10px] border-[#6ac7fd3d] top-[40vh] right-[40%]"></div>
 
                 {/* Projects */}

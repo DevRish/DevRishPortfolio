@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, HTMLProps, MutableRefObject, useState } from 'react';
-// import './styles/Hero.css';
 import DevSVG from './DevSVG';
 import { FaArrowRight, FaBars, FaCode, FaFileAlt, FaInfo, FaLaptopCode, FaUser } from 'react-icons/fa';
 

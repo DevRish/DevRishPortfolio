@@ -1,5 +1,4 @@
 import { useRef, useState, forwardRef, useEffect, HTMLProps, ButtonHTMLAttributes, ChangeEvent } from 'react';
-// import './styles/Contact.css';
 import MessageMe from './MessageMe';
 import { FaPaperPlane } from 'react-icons/fa';
 

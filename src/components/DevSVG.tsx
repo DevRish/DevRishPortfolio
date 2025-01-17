@@ -1,5 +1,4 @@
 import { SVGAttributes } from 'react';
-// import './styles/DevSVG.css';
 
 const DevSVG = ({...props}: SVGAttributes<SVGElement>) => {
   return (

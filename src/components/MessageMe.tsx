@@ -1,5 +1,4 @@
 import { SVGAttributes } from 'react';
-import './styles/DevSVG.css';
 
 const MessageMe = ({ className, ...props }: SVGAttributes<SVGElement>) => (
   <svg className={className} viewBox="0 0 704 574" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -105,7 +104,7 @@ const MessageMe = ({ className, ...props }: SVGAttributes<SVGElement>) => (
           fill="#CBCBCB"
         />
       </g>
-      <g id="Envelope">
+      <g id="Envelope" className='animate-floatdown'>
         <path
           id="Vector_13"
           d="M462.572 158.704H462.408L368.337 198.873L239.628 253.833C239.125 254.044 238.586 254.155 238.04 254.158C237.495 254.16 236.954 254.056 236.449 253.849L103.659 198.758L7.27666 158.77L7.12944 158.704H6.96536C5.44459 158.706 3.98661 159.311 2.91127 160.386C1.83593 161.462 1.23106 162.92 1.22937 164.44V413.549C1.23107 415.07 1.83593 416.528 2.91127 417.603C3.98661 418.679 5.4446 419.284 6.96536 419.285H462.572C464.093 419.284 465.551 418.679 466.627 417.603C467.702 416.528 468.307 415.07 468.308 413.549V164.44C468.307 162.92 467.702 161.462 466.627 160.386C465.551 159.311 464.093 158.706 462.572 158.704V158.704Z"

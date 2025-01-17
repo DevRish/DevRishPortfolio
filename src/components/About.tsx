@@ -1,5 +1,4 @@
 import { useState, forwardRef, useEffect, HTMLProps } from 'react';
-// import './styles/About.css';
 import Me from '../assets/Me.jpeg';
 import { FaArrowLeft, FaArrowRight, FaCircle, FaEnvelope, FaFile, FaGithub, FaLinkedin } from 'react-icons/fa';
 
