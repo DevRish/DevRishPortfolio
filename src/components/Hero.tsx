@@ -79,7 +79,7 @@ const Hero = ({ projectRef, aboutRef, contactRef  }: IHeroProps) => {
                     </div>
                     <div className='order-1 py-[10%] px-[5rem] animate-fadein sm:flex sm:flex-col sm:justify-center sm:items-center sm:p-[10%] sm:pb-[20%]'>
                         <h1 className='text-[2.8rem] mb-[2rem] text-white font-bold sm:text-center'>Hi, I am Rishav Chattopadhyay</h1>
-                        <p className='text-[1.8rem] mb-[2.5rem] text-[rgb(218,218,218)] sm:text-center'>I will make your ideas come alive on the internet with my web development skills. Get your website built now!</p>
+                        <p className='text-[1.8rem] mb-[2.5rem] text-[rgb(218,218,218)] sm:text-center'>I will make your ideas come alive on the internet. Get your website built now!</p>
                         <div className='flex flex-row text-[1.8rem] font-semibold sm:flex-col sm:w-full sm:justify-center sm:items-center'>
                             <button className="sm:w-full sm:mr-0 sm:mb-[1.5rem] hover:scale-110 border-none rounded-[10px] cursor-pointer py-[1.5rem] px-[2rem] bg-[#00131F] text-white mr-[2rem]" onClick={ () => { scrollToElement(contactRef) } }>Let&apos;s Talk</button>
                             <button className="sm:w-full hover:scale-110 rounded-[10px] cursor-pointer p-[1rem] bg-transparent text-[#8FB0C3] border-[5px] border-[#8FB0C3]" onClick={ () => { scrollToElement(projectRef) } }>View Projects</button>

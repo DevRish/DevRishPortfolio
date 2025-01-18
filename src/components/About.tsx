@@ -110,11 +110,11 @@ const Carousel = ({ slides, ...props }: { slides: CarouselSlide[] } & HTMLProps<
 const Introduction = () => (
     <>
         <p className='text-[2rem] sm:text-[1.8rem] text-[#0B2935] w-full my-[2rem] mx-0'>
-            I am a full stack web developer. I specialize in working with the MERN stack.
-            I am currently pursuing B.Tech. in Computer Science and Engineering from 
-            Heritage Institute Of Technology, Kolkata. I love to learn and try out new things.
-            I am also a competetive programmer and have 3 star rating on Codechef. <br /><br />
-            Thanks for visiting my website!
+            I am a passionate full stack developer crafting dynamic and high-performing websites.
+            I thrive in collaborative environments and approach challenges with a focus on efficiency and scalability,
+            to deliver quality solutions that enhance user engagement and business growth.
+            <br /><br />
+            Let&apos;s connect!
         </p>
         <div className="flex items-center">
             <SocialLink href="mailto:rishavchatterjee1546@gmail.com"><FaEnvelope /></SocialLink>
@@ -136,29 +136,19 @@ const skillsIconData = [
         imgAlt: 'ReactJS',
     },
     {
-        linkTo: 'https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg',
-        imgAlt: 'HTML5',
+        linkTo: 'https://nextjs.org/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original-wordmark.svg',
+        imgAlt: 'NextJS',
     },
     {
-        linkTo: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg',
-        imgAlt: 'CSS3',
+        linkTo: 'https://tailwindcss.com/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg',
+        imgAlt: 'TailwindCSS',
     },
     {
-        linkTo: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
-        imgAlt: 'Javascript',
-    },
-    {
-        linkTo: 'https://getbootstrap.com/',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg',
-        imgAlt: 'Bootstrap',
-    },
-    {
-        linkTo: 'https://www.mongodb.com/',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg',
-        imgAlt: 'MongoDB',
+        linkTo: 'https://www.typescriptlang.org/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg',
+        imgAlt: 'Typescript',
     },
     {
         linkTo: 'https://expressjs.com/',
@@ -170,23 +160,23 @@ const skillsIconData = [
         imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg',
         imgAlt: 'NodeJS',
     },
+    {
+        linkTo: 'https://spring.io/projects/spring-boot',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg',
+        imgAlt: 'SpringBoot',
+    },
+    {
+        linkTo: 'https://www.java.com/en/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg',
+        imgAlt: 'Java',
+    },
 ];
 
 const toolsIconData = [
     {
-        linkTo: 'https://code.visualstudio.com/',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original-wordmark.svg',
-        imgAlt: 'VSCode',
-    },
-    {
-        linkTo: 'https://en.wikipedia.org/wiki/Windows_10',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg',
-        imgAlt: 'Windows',
-    },
-    {
-        linkTo: 'https://www.linux.org/',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg',
-        imgAlt: 'Linux',
+        linkTo: 'https://www.gnu.org/software/bash/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg',
+        imgAlt: 'Bash',
     },
     {
         linkTo: 'https://git-scm.com/',
@@ -194,24 +184,44 @@ const toolsIconData = [
         imgAlt: 'Git',
     },
     {
+        linkTo: 'https://www.mongodb.com/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg',
+        imgAlt: 'MongoDB',
+    },
+    {
+        linkTo: 'https://www.postgresql.org/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg',
+        imgAlt: 'Postgresql',
+    },
+    {
+        linkTo: 'https://www.docker.com/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg',
+        imgAlt: 'Docker',
+    },
+    {
+        linkTo: 'https://www.rabbitmq.com/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/rabbitmq/rabbitmq-original.svg',
+        imgAlt: 'RabbitMQ',
+    },
+    {
+        linkTo: 'https://aws.amazon.com/',
+        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+        imgAlt: 'AWS',
+    },
+    {
         linkTo: 'https://www.figma.com',
         imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg',
         imgAlt: 'Figma',
     },
-    {
-        linkTo: 'https://www.adobe.com/in/products/photoshop.html',
-        imgLink: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-plain.svg',
-        imgAlt: 'Photoshop',
-    },
 ];
 
-const achievementData = [
-    'Achieved 3 star rating on Codechef.',
-    'Participated in Hacktoberfest 2021 and successfully completed more than four contributions.',
-    'Participated in Google 30 Days of Cloud and successfully completed both tracks.',
+const infoData = [
+    'Graduated with a B.Tech. in Computer Science & Engineering in 2024',
+    'Skilled in problem-solving and DSA with 1500+ rating on Leetcode and 1600+ rating on Codechef',
+    'Contributed to Open Source Projects in events like HacktoberFest and GirlScript Summer of Code',
 ];
 
-const Achievements = ({ data }: { data: string[] }) => (
+const MoreInfo = ({ data }: { data: string[] }) => (
     <ul className='w-full ml-[5%] list-disc'>
         {
             data.map((d, i) => (
@@ -280,20 +290,20 @@ const About = forwardRef<HTMLDivElement, any>((_, ref) => {
                         <Carousel 
                             slides={[
                                 {
-                                    heading: 'Hi! I am Rishav Chattopadhya',
+                                    heading: 'Hi! I am Rishav Chattopadhyay',
                                     content: <Introduction />
                                 },
                                 {
-                                    heading: 'Some languages and libraries I use',
+                                    heading: 'Some libraries and languages I use',
                                     content: <IconSet iconData={skillsIconData} />
                                 },
                                 {
-                                    heading: 'Tools I usually work with',
+                                    heading: 'Familiar Tools & Technologies',
                                     content: <IconSet iconData={toolsIconData} />
                                 },
                                 {
-                                    heading: 'Some of my Achievements',
-                                    content: <Achievements data={achievementData} />
+                                    heading: 'More about me',
+                                    content: <MoreInfo data={infoData} />
                                 }
                             ]}
                         />

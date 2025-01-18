@@ -68,14 +68,14 @@ const ProjectSections = ({ projectData }: { projectData: ProjectData[] }) => (
 const projectDataInit: ProjectData[] = [
     {
         name: 'MartCart',
-        desc: 'An ecommerce website where you can buy items',
+        desc: 'An ecommerce website with seamless shopping experience',
         imgSrc: MartCartImg.src,
         imgAlt: 'MartcartProjectImage',
         keyPoints: [
-            '99% responsive design',
-            'Single Page Application using React RouterDOM',
-            'Lightweight website with compressed images',
-            'Data stored in real-time MongoDB database'
+            'Fully responsive design for flawless user experience across devices',
+            'Robust JWT and Session based authentication',
+            'Integrated with Razorpay payment gateway',
+            'Deployed backend on AWS, integrated S3 storage, secured with SSL'
         ],
         visitLink: 'https://martcartdevrish.netlify.app',
         repoLink: 'https://github.com/DevRish/martcart',
@@ -83,13 +83,13 @@ const projectDataInit: ProjectData[] = [
     },
     {
         name: 'Framezy',
-        desc: 'A modern design landing page for an art framing service',
+        desc: 'A landing page for an art framing service',
         imgSrc: FramezyImg.src,
         imgAlt: 'FramezyProjectImage',
         keyPoints: [
-            '99% responsive design',
-            'Lightweight website with compressed images',
-            'Focussed on making UX following recent trends',
+            'Fully responsive landing page with impactful design',
+            'Lightweight and optimized, ensuring smooth user experience',
+            'Crafted with a sharp focus on modern UX principles',
             'Enhanced mobile experience',
         ],
         visitLink: 'https://devrish.github.io/Framezy/',
@@ -102,10 +102,10 @@ const projectDataInit: ProjectData[] = [
         imgSrc: NotesAppImg.src,
         imgAlt: 'NotesAppProjectImage',
         keyPoints: [
-            '99% responsive design',
-            'Single Page Application using React RouterDOM',
-            'Restricted routes protected using JWT',
-            'Data stored in real-time MongoDB database',
+            'Fully responsive design',
+            'Single Page Application',
+            'JWT based authentication',
+            'MongoDB for data storage',
         ],
         repoLink: 'https://github.com/DevRish/notes-app',
         shouldShow: false,

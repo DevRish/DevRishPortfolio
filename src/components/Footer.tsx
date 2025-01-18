@@ -91,17 +91,17 @@ const Footer = () => {
                     }
                 </div>
             </div>
-            <div className="w-full bg-gray-500 text-[1rem] p-0">
+            {/* <div className="w-full bg-gray-500 text-[1rem] p-0">
                 <h1 className='text-white text-[1.6rem] font-medium py-[1rem] text-center no-underline'>
                     Illustrations from 
                     <a href='https://www.freepik.com/' target='_blank' className='mx-[0.5rem]'>Freepik</a>
                     and
                     <a href='https://undraw.co/' target='_blank' className='mx-[0.5rem]'>Undraw</a>
                 </h1>
-            </div>
+            </div> */}
             <div className="w-full bg-black text-[1rem] p-0">
                 <h1 className='text-white text-[1.6rem] font-medium py-[1rem] text-center'>
-                    Copyright &copy; {(new Date()).getFullYear()} Rishav Chattopadhyay. All Rights Reserved
+                &copy; {(new Date()).getFullYear()} | Rishav Chattopadhyay 
                 </h1>
             </div>
         </>
